@@ -99,7 +99,9 @@ npm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss
 ```
 
 ESLint 구성을 다음과 같이 수정합니다.
+
 /.eslintrc.json 
+
 ```json
 {
   "extends": [
@@ -114,7 +116,9 @@ ESLint 구성을 다음과 같이 수정합니다.
 추가로, 프로젝트 루트 경로에 <code>.prettierrc</code> 파일을 생성하고 다음처럼 원하는 규칙을 추가합니다.<br>
 자세한 규칙은 <a href="https://prettier.io/docs/en/options" target="_blank">Prettier / Options</a> 에서 확인할 수 있습니다.
 </p>
+
 /.prettierrcJSON
+
 ```json
 {
   "semi": false,
@@ -125,6 +129,18 @@ ESLint 구성을 다음과 같이 수정합니다.
   "trailingComma": "none",
   "arrowParens": "avoid",
   "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+#### 자동 포맷팅 설정
+프로젝트의 루트 경로에 .vscode/settings.json 폴더와 파일을 생성해 다음과 같이 내용을 추가할 수 있습니다.
+
+/.vscode/settings.json
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
 
