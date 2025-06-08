@@ -9,9 +9,20 @@
 6. 최적화
 7. 배포
 
+<table border="1">
+  <tr>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">1. 개요        </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">2. 라우팅      </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">3. 라우팅 패턴  </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">4. 인증        </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">5. 서버 액션   </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">6. 최적화      </a></td>
+    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">7. 배포        </a></td>  
+  </tr>
+</table>
 ---
 
-# 개요
+# 1. 개요
 
 ### Next.js 15의 주요 업데이트 내용
 
