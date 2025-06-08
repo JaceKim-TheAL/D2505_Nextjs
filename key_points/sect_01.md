@@ -57,7 +57,8 @@
     <li>정적 페이지 생성 최적화와 서버 컴포넌트의 HMR 기능이 강화되었습니다.</li></ul>
     </li>
 </ul>
-  
+<br/>
+
 [[TOP]](#index)
 
 ---
@@ -65,7 +66,8 @@
 <p>
 <a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
 </p>
-  
+<br/>
+
 [[TOP]](#index)
 
 ---
@@ -151,9 +153,11 @@ ESLint 구성을 다음과 같이 수정합니다.
 
 ---
 ### Server vs Client
+<pre>
 Next.js에서는 서버 컴포넌트(Server Component)와 클라이언트 컴포넌트(Client Component)를 구분해 코드 일부가 서버 혹은 클라이언트에서 출력될 수 있도록 만들 수 있습니다.
 기본적으로 생성하는 모든 컴포넌트는 서버 컴포넌트입니다!
 클라이언트 컴포넌트로 변경/사용하려면 다음과 같이 컴포넌트 최상단에 'use client' 선언이 필요하고, 해당 선언이 없으면 서버 컴포넌트입니다.
+</pre>
 
 <p>클라이언트 컴포넌트 또한 일부 정적 요소는 서버에서 렌더링합니다.<br>
 따라서 클라이언트 컴포넌트는 '서버 + 클라이언트'의 하이브리드 컴포넌트로 이해해야 합니다!</p>
@@ -165,6 +169,7 @@ export default function Component() {
   return null
 }
 ```
+<br/>
 
 [[TOP]](#index)
 
