@@ -111,7 +111,7 @@ Next.js는 폴더를 사용해 경로를 정의하는 파일 시스템 기반 �
  <br/>
 이렇게 매핑되는 각 경로 구간을 세그먼트(Segment)라고 합니다. <br/>
 
-세그먼트의 이해 
+**세그먼트의 이해**
 ![세그먼트](./images/s02_segment.jpg)
 <br/>
 
@@ -157,7 +157,7 @@ export default function Movies() {
 또한 위에서 살펴본 라우팅 파일 규칙에 해당하는 이름이 아닌 파일은, 경로로 정의되지 않기 때문에 같은 폴더 안에서 자유롭게 추가해 사용할 수 있습니다.<br/>
 다음 이미지에서 `page.js`, `route.js` 파일을 제외한 나머지 파일은 경로로 정의되지 않습니다.(Not Routable)<br/>
 
-라우팅 파일과 폴더 공유(Colocation)
+**라우팅 파일과 폴더 공유(Colocation)**
 ![세그먼트](./images/s02_page_route.jpg)
 <br/>
 
