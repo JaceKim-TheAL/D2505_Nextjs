@@ -13,10 +13,10 @@
 ![메인이미지](../images/nextjs_main.jpg)  
 
 [nextjs15]: https://nextjs-ko.org/docs/app/building-your-application/upgrading/version-15
-[link_01]: sect_01.md
-[link_02]: sect_02.md
-[link_03]: sect_03.md
-[link_04]: sect_04.md
-[link_05]: sect_05.md
-[link_06]: sect_06.md
-[link_07]: sect_07.md
+[link_01]: ./sect_01.md
+[link_02]: ./sect_02.md
+[link_03]: ./sect_03.md
+[link_04]: ./sect_04.md
+[link_05]: ./sect_05.md
+[link_06]: ./sect_06.md
+[link_07]: ./sect_07.md
