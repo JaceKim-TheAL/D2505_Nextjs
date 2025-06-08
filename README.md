@@ -1,4 +1,4 @@
-[![My Skills](https://skillicons.dev/icons?i=nextjs,react)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
 
 # D2505_Nextjs
 <em>React 기반의 웹 애플리케이션 프레임워크</em>
