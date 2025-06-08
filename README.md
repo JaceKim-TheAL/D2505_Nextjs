@@ -1,5 +1,4 @@
-[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)][nextjs15]
-[nextjs15]: https://nextjs-ko.org/docs/
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://nextjs-ko.org/docs/)
 
 # D2505_Nextjs
 <em>React 기반의 웹 애플리케이션 프레임워크</em>
