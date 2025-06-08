@@ -20,8 +20,8 @@
 - [Next.js 업데이트](#nextjs-15의-주요-업데이트-내용) 
 - [Next.js 소개](#nextjs란)
 - [설치 및 구성](#설치-및-구성)  
-> - [Prettier](#prettier)
-> - [자동 포맷팅 설정](#자동-포맷팅-설정)
+- - [Prettier](#prettier)
+- - [자동 포맷팅 설정](#자동-포맷팅-설정)
 - [Server vs Client](#server-vs-client)
 
 ---
@@ -200,6 +200,8 @@ export default function Component() {
 - ...
  
 각 서버와 클라이언트 컴포넌트에서 서로 맞지 않는 API를 사용하면 다음 이미지와 같이, 바로 에러를 표시하기 때문에 금방 구분할 수 있게 됩니다.
+![에러메시지](./images/s01_error_msg.jpg)
+<br/>
 
 [[TOP]](#index)
 
