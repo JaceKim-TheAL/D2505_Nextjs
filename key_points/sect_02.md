@@ -115,7 +115,7 @@ Next.js는 폴더를 사용해 경로를 정의하는 파일 시스템 기반 �
 ![세그먼트](./images/s02_segment.jpg)
 <br/>
 
-프로젝트 구조
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -125,7 +125,7 @@ Next.js는 폴더를 사용해 경로를 정의하는 파일 시스템 기반 �
 <br/>
 
 
-http://localhost:3000/ 경로의 페이지 내용
+**http://localhost:3000/ 경로의 페이지 내용**
 ```tsx
 [/app/page.tsx]
 
@@ -135,7 +135,7 @@ export default function Home() {
 ```
 <br/>
 
-http://localhost:3000/movies 경로의 페이지 내용
+**http://localhost:3000/movies 경로의 페이지 내용**
 ```tsx
 [/app/movies/page.tsx]
 
@@ -170,7 +170,7 @@ export default function Movies() {
 슬롯(Slot) 방식으로 children Prop을 사용하며, {children} 부분에는 같은 레벨에 있는 page.tsx 컴포넌트를 출력합니다.<br/>
 또한 레이아웃은 중첩해서 사용할 수 있습니다.<br/>
 
-프로젝트 구조
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -186,7 +186,7 @@ export default function Movies() {
 
 다음 코드의 {children} 부분에는 /app/page.tsx 컴포넌트가 출력됩니다.<br/>
 
-http://localhost:3000/ 경로의 레이아웃 
+**http://localhost:3000/ 경로의 레이아웃**
 ```tsx
 [/app/layout.tsxTSX]
 
@@ -213,7 +213,7 @@ export default function RootLayout({
 다음 코드의 {children} 부분에는 /app/movies/page.tsx 컴포넌트가 출력됩니다.<br/>
 <br/>
 
-http://localhost:3000/movies 경로의 레이아웃
+**http://localhost:3000/movies 경로의 레이아웃**
 ```tsx
 [/app/movies/layout.tsx]
 
@@ -235,7 +235,7 @@ Next.js에서는 페이지 이동을 위해 <a> 태그가 아닌 <a href="https:
 <Link> 컴포넌트는 이동하는 페이지 전체를 새로고침하지 않고 최적화된 번들만 일부 로드하거나 서버 렌더링 가능 등의 Next.js 프로젝트 내에서 최적화된 페이지 탐색을 제공합니다. <br/>
 위에서 확인한, /components/Header.tsx 컴포넌트에서, 각 페이지로 이동할 수 있는 링크를 추가해봅시다. <br/>
 
-프로젝트 구조
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -426,7 +426,8 @@ export default function Header() {
 그러면 URL의 세그먼트 값이, params Prop으로 전달되고, 대괄호 사이의 폴더 이름이 속성 이름이 됩니다. <br/>
 만약 쿼리스트링(Query String)을 사용하는 경우, searchParams Prop으로 전달됩니다. <br/>
 <br/>
-프로젝트 구조
+
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -438,8 +439,9 @@ export default function Header() {
 
 `params`와 `searchParams`는 모두 Promise 객체입니다.<br/>
 서버 컴포넌트인 경우, await 키워드를 사용해 필요한 값을 추출합니다.<br/>
+<br/>
 
-서버 컴포넌트인 경우
+**서버 컴포넌트인 경우**
 ```tsx
 [/app/movies/[movieId]/page.tsx]
 
@@ -471,8 +473,8 @@ export default async function MovieDetails({
 
 클라이언트 컴포넌트인 경우, use 훅을 사용해 필요한 값을 추출합니다.<br/>
 <br/>
-클라이언트 컴포넌트인 경우 
 
+**클라이언트 컴포넌트인 경우**
 ```tsx
 [/app/movies/[movieId]/page.tsx]
 
@@ -609,7 +611,8 @@ http://localhost:3000/movies/tt1630029
 페이지 출력을 준비하는 동안, 먼저 로딩 상태를 표시할 수 있습니다. <br/>
 출력할 페이지와 같은 경로(폴더)에 loading.tsx 파일을 생성합니다. <br/>
 <br/>
-프로젝트 구조
+
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -619,8 +622,8 @@ http://localhost:3000/movies/tt1630029
 ```
 <br/>
 <br/>
-페이지 출력 전 로딩 UI
 
+**페이지 출력 전 로딩 UI**
 ```tsx
 [/app/movies/loading.tsx]
 
@@ -674,10 +677,9 @@ export default function Loader({
 
 <br/>
 지연 시간을 추가하도록 대기(Delay) 유틸 함수를 작성합니다.
-
 <br/>
-대기 유틸 함수
 
+**대기 유틸 함수**
 ```tsx
 [/utils/wait.ts]
 
@@ -691,8 +693,8 @@ export default function wait(ms: number) {
 다음과 같이 영화 상세 정보 가져오기를 2초 동안 지연해서 확실히 로딩 UI를 확인하려고 합니다. <br/>
 이제 `http://localhost:3000/movies/tt4520988` 페이지로 접근해보세요! <br/>
 <br/>
-최소 3초 후에 페이지를 출력
 
+**최소 3초 후에 페이지를 출력**
 ```tsx
 [/app/movies/[movieId]/page.tsx]
 
@@ -719,7 +721,8 @@ export default async function MovieDetails({
 페이지 출력 중 에러가 발생하면, 에러 상태를 표시할 수 있습니다.<br/>
 출력할 페이지와 같은 폴더에 error.tsx 파일을 생성합니다.<br/>
 <br/>
-프로젝트 구조
+
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─movies/
@@ -730,8 +733,7 @@ export default async function MovieDetails({
 ```
 <br/>
 
-*페이지 출력 중 에러 발생 시 UI*
-
+**페이지 출력 중 에러 발생 시 UI**
 ```tsx
 [/app/movies/error.tsx]
 
@@ -746,8 +748,8 @@ export default function Error({
 ```
 
 <br/>
-*2초 후에 에러 페이지를 출력*
 
+**2초 후에 에러 페이지를 출력**
 ```tsx
 [/app/movies/[movieId]/page.tsx]
 
@@ -771,16 +773,15 @@ export default async function MovieDetails({
 ### 찾을 수 없는 페이지
 프로젝트에서 정의하지 않은 경로로 접근하면, not-found.tsx 파일로 별도의 페이지를 출력할 수 있습니다.<br/>
 
-프로젝트 구조
-
+**프로젝트 구조**
 ```shell
 ├─app/
 │  └─not-found.tsx
 ```
 <br/>
 <br/>
-*404 페이지 내용*
 
+**404 페이지 내용**
 ```tsx
 [/app/not-found.tsx]
 
@@ -814,8 +815,7 @@ http://localhost:3000/helloworld12345678
 Abc 컴포넌트는 2초 만에 출력할 수 있지만, Xyz 컴포넌트의 영향으로 3초 후에 같이 출력됩니다.<br/>
 <br/>
 
-*프로젝트 구조*
-
+**프로젝트 구조**
 ```shell
 ├─app/
 │  ├─async/
@@ -826,8 +826,8 @@ Abc 컴포넌트는 2초 만에 출력할 수 있지만, Xyz 컴포넌트의 영
 ```
 <br/>
 <br/>
-*페이지 출력 전 로딩 UI*
 
+**페이지 출력 전 로딩 UI**
 ```tsx
 [/app/async/loading.tsx]
 
@@ -839,8 +839,8 @@ export default function Loading() {
 ```
 <br/>
 <br/>
-*2초 후에 페이지를 출력하는 컴포넌트 Abc*
 
+**2초 후에 페이지를 출력하는 컴포넌트 Abc**
 ```tsx
 [/app/async/Abc.tsx]
 
@@ -853,8 +853,8 @@ export default async function Abc() {
 ```
 <br/>
 <br/>
-*3초 후에 페이지를 출력하는 컴포넌트 Xyz*
 
+**3초 후에 페이지를 출력하는 컴포넌트 Xyz**
 ```tsx
 [/app/async/Xyz.tsx]
 
