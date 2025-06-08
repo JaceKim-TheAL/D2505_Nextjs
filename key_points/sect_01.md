@@ -148,6 +148,7 @@ ESLint 구성을 다음과 같이 수정합니다.
 <br/>
 
 [[TOP]](#index)
+
 ---
 ### Server vs Client
 Next.js에서는 서버 컴포넌트(Server Component)와 클라이언트 컴포넌트(Client Component)를 구분해 코드 일부가 서버 혹은 클라이언트에서 출력될 수 있도록 만들 수 있습니다.
