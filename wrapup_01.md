@@ -53,7 +53,7 @@
     </li>
 </ul>
 
-[[TOP]](#개요)
+[[TOP]](#index)
 
 ---
 ### Next.js란?
@@ -61,7 +61,7 @@
 <a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
 </p>
 
-[[TOP]](#개요)
+[[TOP]](#index)
 
 ---
 ### 설치 및 구성
@@ -81,6 +81,6 @@ npx create-next-app@latest <프로젝트이름>
     ✔ Would you like to customize the import alias (@/* by default)? … No  # `@/*` 외 경로 별칭 사용 여부
 ```
 
-[[TOP]](#개요)
+[[TOP]](#index)
 
 ---
