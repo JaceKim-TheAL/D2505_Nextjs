@@ -17,12 +17,13 @@
 
 ---
 # 1. 개요
-- [Next.js 업데이트](#nextjs-15의-주요-업데이트-내용) 
+- [Next.js 15 업데이트](#nextjs-15의-주요-업데이트-내용) 
 - [Next.js 소개](#nextjs란)
 - [설치 및 구성](#설치-및-구성)  
 - - [Prettier](#prettier)
 - - [자동 포맷팅 설정](#자동-포맷팅-설정)
-- [Server vs Client](#server-vs-client)
+- [Server vs Client](#server-vs-client) 
+<br/>
 
 ---
 ### Next.js 15의 주요 업데이트 내용
@@ -67,7 +68,8 @@
 ---
 ### Next.js란?
 <p>
-<a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
+<a href="https://nextjs-ko.org" target="_blank"> Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br/>
+Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
 </p>
 <br/>
 
@@ -200,7 +202,7 @@ export default function Component() {
 - ...
  
 각 서버와 클라이언트 컴포넌트에서 서로 맞지 않는 API를 사용하면 다음 이미지와 같이, 바로 에러를 표시하기 때문에 금방 구분할 수 있게 됩니다.
-![에러메시지](./images/s01_error_msg.jpg)
+![에러메시지](./images/s01_error_msg.jpg) 
 <br/>
 
 [[TOP]](#index)
