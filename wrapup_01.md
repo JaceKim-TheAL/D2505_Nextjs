@@ -13,8 +13,8 @@
 
 # 개요
 
-### 
-<p>다음은 Next.js 15의 주요 업데이트 내용입니다.</p>
+### Next.js 15의 주요 업데이트 내용
+
 <ul>
     <li><strong>자동화된 업그레이드 CLI(<code>@next/codemod</code>)</strong><ul>
     <li>Next.js 버전을 쉽게 업그레이드할 수 있는 CLI가 제공됩니다. </li><li><code>npx @next/codemod@canary upgrade latest</code> 명령어로 업그레이드할 수 있습니다.</li><li>상세한 코드 변경까지는 변경이 되지 않아서 추가 확인 작업이 필요합니다.</li></ul>
@@ -50,8 +50,26 @@
 </ul>
 
 
-<section class="hmd-section">
-<h3 id="h3_Nextjs란"><a href="#h3_Nextjs란"># </a>Next.js란?</h3>
-<p><a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.</p>
-</section>
+### Next.js란?
+<p>
+<a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
+</p>
 
+
+
+### 설치 및 구성
+<p>
+다음 명령으로 Next.js 프로젝트를 설치합니다.<br> 
+각 질문에 <code>Yes</code> 또는 <code>No</code>로 답변합니다.
+</p>
+
+```shell
+npx create-next-app@latest <프로젝트이름>
+    ✔ Would you like to use TypeScript? … Yes  # 타입스크립트 사용 여부
+    ✔ Would you like to use ESLint? … Yes  # ESLint 사용 여부
+    ✔ Would you like to use Tailwind CSS? … Yes  # Tailwind CSS 사용 여부
+    ✔ Would you like your code inside a `src/` directory? … No  # src/ 디렉토리 사용 여부
+    ✔ Would you like to use App Router? (recommended) … Yes  # App Router 사용 여부
+    ✔ Would you like to use Turbopack for next dev? … No  # Turbopack 사용 여부
+    ✔ Would you like to customize the import alias (@/* by default)? … No  # `@/*` 외 경로 별칭 사용 여부
+```
