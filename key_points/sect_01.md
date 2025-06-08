@@ -85,6 +85,7 @@ npx create-next-app@latest <프로젝트이름>
     ✔ Would you like to use Turbopack for next dev? … No  # Turbopack 사용 여부
     ✔ Would you like to customize the import alias (@/* by default)? … No  # `@/*` 외 경로 별칭 사용 여부
 ```
+<br/>
 
 #### Prettier
 다음 VS Code 확장 프로그램이 설치되어 있어야 합니다.
@@ -117,7 +118,7 @@ ESLint 구성을 다음과 같이 수정합니다.
 자세한 규칙은 <a href="https://prettier.io/docs/en/options" target="_blank">Prettier / Options</a> 에서 확인할 수 있습니다.
 </p>
 
-*/.prettierrcJSON*
+**/.prettierrcJSON**
 
 ```json
 {
@@ -131,6 +132,7 @@ ESLint 구성을 다음과 같이 수정합니다.
   "plugins": ["prettier-plugin-tailwindcss"]
 }
 ```
+<br/>
 
 #### 자동 포맷팅 설정
 프로젝트의 루트 경로에 .vscode/settings.json 폴더와 파일을 생성해 다음과 같이 내용을 추가할 수 있습니다.
@@ -143,12 +145,25 @@ ESLint 구성을 다음과 같이 수정합니다.
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
-
+<br/>
 
 [[TOP]](#index)
-
 ---
+### Server vs Client
+Next.js에서는 서버 컴포넌트(Server Component)와 클라이언트 컴포넌트(Client Component)를 구분해 코드 일부가 서버 혹은 클라이언트에서 출력될 수 있도록 만들 수 있습니다.
+기본적으로 생성하는 모든 컴포넌트는 서버 컴포넌트입니다!
+클라이언트 컴포넌트로 변경/사용하려면 다음과 같이 컴포넌트 최상단에 'use client' 선언이 필요하고, 해당 선언이 없으면 서버 컴포넌트입니다.
 
+<p>클라이언트 컴포넌트 또한 일부 정적 요소는 서버에서 렌더링합니다.<br>
+따라서 클라이언트 컴포넌트는 '서버 + 클라이언트'의 하이브리드 컴포넌트로 이해해야 합니다!</p>
+
+```tsx
+'use client'
+
+export default function Component() {
+  return null
+}
+```
 
 [[TOP]](#index)
 
