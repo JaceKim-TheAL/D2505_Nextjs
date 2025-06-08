@@ -85,6 +85,18 @@ npx create-next-app@latest <프로젝트이름>
     ✔ Would you like to customize the import alias (@/* by default)? … No  # `@/*` 외 경로 별칭 사용 여부
 ```
 
+#### Prettier
+다음 VS Code 확장 프로그램이 설치되어 있어야 합니다.
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">ESLint</a>: 코드 품질 확인 및 버그, 안티패턴(Anti-pattern)을 감지</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank">Prettier - Code formatter</a>: 코드 스타일 및 포맷팅 관리, 일관된 코드 스타일을 적용 가능</li>
+</ul>
+
+[[TOP]](#index)
+
+---
+
+
 [[TOP]](#index)
 
 ---
