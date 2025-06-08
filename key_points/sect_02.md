@@ -18,6 +18,8 @@
 ---
 # 2. 라우팅
 - [페이지](#페이지)
+- [레이아웃](#레이아웃)
+- [컴포넌트 방식의 탐색](#컴포넌트-방식의-탐색)
 
 <br/>
 
@@ -116,14 +118,34 @@ Next.js는 폴더를 사용해 경로를 정의하는 파일 시스템 기반 �
 ```
 <br/>
 
-/app/page.tsx
 
+http://localhost:3000/ 경로의 페이지 내용
 ```tsx
+[/app/page.tsx]
+
 export default function Home() {
   return <h1>Home page!</h1>
 }
 ```
-http://localhost:3000/ 경로의 페이지 내용
+<br/>
+
+http://localhost:3000/movies 경로의 페이지 내용
+```tsx
+[/app/movies/page.tsx]
+
+export default function Movies() {
+  return (
+    <>
+      <h1>Movies page!</h1>
+      <ul>
+        <li>Avengers</li>
+        <li>Avatar</li>
+        <li>Frozen</li>
+      </ul>
+    </>
+  )
+}
+```
 <br/>
 
 또한 위에서 살펴본 라우팅 파일 규칙에 해당하는 이름이 아닌 파일은, 경로로 정의되지 않기 때문에 같은 폴더 안에서 자유롭게 추가해 사용할 수 있습니다.<br/>
@@ -158,8 +180,10 @@ http://localhost:3000/ 경로의 페이지 내용
 
 다음 코드의 {children} 부분에는 /app/page.tsx 컴포넌트가 출력됩니다.<br/>
 
-/app/layout.tsxTSX
+http://localhost:3000/ 경로의 레이아웃 
 ```tsx
+[/app/layout.tsxTSX]
+
 import './globals.css'
 import Header from '@/components/Header'
 
@@ -178,10 +202,10 @@ export default function RootLayout({
   )
 }
 ```
-http://localhost:3000/ 경로의 레이아웃 <br/>
 <br/>
 
 다음 코드의 {children} 부분에는 /app/movies/page.tsx 컴포넌트가 출력됩니다.<br/>
+<br/>
 
 http://localhost:3000/movies 경로의 레이아웃
 ```tsx
@@ -193,6 +217,15 @@ export default function MoviesLayout({
   return <section>{children}</section>
 }
 ```
+
+<br/>
+
+[[TOP]](#index)
+
+---
+### 컴포넌트 방식의 탐색
+
+
 
 <br/>
 
