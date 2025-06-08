@@ -5,8 +5,8 @@
 
 <table>
   <tr>
-    <td><b href="sect_01.md">개요        </b></td>
-    <td><a href="sect_02.md">라우팅      </a></td>
+    <td><a href="sect_01.md">개요        </a></td>
+    <td><b href="sect_02.md">라우팅      </b></td>
     <td><a href="sect_03.md">라우팅 패턴  </a></td>
     <td><a href="sect_04.md">인증        </a></td>
     <td><a href="sect_05.md">서버 액션   </a></td>
@@ -16,7 +16,7 @@
 </table>
 
 ---
-# 1. 개요
+# 2. 라우팅
 - [Next.js 업데이트](#nextjs-15의-주요-업데이트-내용) 
 - [Next.js 소개](#nextjs란)
 - [설치 및 구성](#설치-및-구성)  
