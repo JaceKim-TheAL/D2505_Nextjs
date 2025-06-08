@@ -1,22 +1,56 @@
 <table>
     <thead>
         <tr>
-            <th>추가 파일</th>
-            <th>설명</th>
+            <th>폴더 구조 예시</th>
+            <th>URL 예시</th>
+            <th><code>params</code> 값</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><code>default</code></td>
-            <td><code>.js</code>, <code>.jsx</code>, <code>.tsx</code></td>
+            <td><code>app/movies/[hello]/page.tsx</code></td>
+            <td><code>/movies/foo</code></td>
+            <td><code>{ hello: 'foo' }</code></td>
         </tr>
         <tr>
-            <td><code>global-error</code></td>
-            <td><code>.js</code>, <code>.jsx</code>, <code>.tsx</code></td>
+            <td><code>app/movies/[hello]/page.tsx</code></td>
+            <td><code>/movies/bar</code></td>
+            <td><code>{ hello: 'bar' }</code></td>
         </tr>
         <tr>
-            <td><code>route</code></td>
-            <td><code>.js</code>, <code>.ts</code></td>
+            <td><code>app/movies/[hello]/[world]/page.tsx</code></td>
+            <td><code>/movies/foo/bar</code></td>
+            <td><code>{ hello: 'foo', world: 'bar' }</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[...hello]/page.tsx</code></td>
+            <td><code>/movies/foo</code></td>
+            <td><code>{ hello: ['foo'] }</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[...hello]/page.tsx</code></td>
+            <td><code>/movies/foo/bar</code></td>
+            <td><code>{ hello: ['foo', 'bar'] }</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[...hello]/page.tsx</code></td>
+            <td><code>/movies/foo/bar/baz</code></td>
+            <td><code>{ hello: ['foo', 'bar', baz] }</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[[...hello]]/page.tsx</code></td>
+            <td><code>/movies</code></td>
+            <td><code>{}</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[[...hello]]/page.tsx</code></td>
+            <td><code>/movies/foo</code></td>
+            <td><code>{ hello: ['foo'] }</code></td>
+        </tr>
+        <tr>
+            <td><code>app/movies/[[...hello]]/page.tsx</code></td>
+            <td><code>/movies/foo/bar</code></td>
+            <td><code>{ hello: ['foo', 'bar'] }</code></td>
         </tr>
     </tbody>
 </table>
