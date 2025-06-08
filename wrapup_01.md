@@ -1,20 +1,46 @@
 [![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
 
 ### INDEX
-<table border="1">
+
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
+</style>
+
+<table>
   <tr>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_01.md">1. 개요        </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_02.md">2. 라우팅      </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_03.md">3. 라우팅 패턴  </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_04.md">4. 인증        </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_05.md">5. 서버 액션   </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_06.md">6. 최적화      </a></td>
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_07.md">7. 배포        </a></td>  
-    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_07.md">              </a></td>  
+    <td><a href="wrapup_01.md">1. 개요        </a></td>
+    <td><a href="wrapup_02.md">2. 라우팅      </a></td>
+    <td><a href="wrapup_03.md">3. 라우팅 패턴  </a></td>
+    <td><a href="wrapup_04.md">4. 인증        </a></td>
+    <td><a href="wrapup_05.md">5. 서버 액션   </a></td>
+    <td><a href="wrapup_06.md">6. 최적화      </a></td>
+    <td><a href="wrapup_07.md">7. 배포        </a></td>  
   </tr>
 </table>
----
 
+---
 # 1. 개요
 
 ### Next.js 15의 주요 업데이트 내용
