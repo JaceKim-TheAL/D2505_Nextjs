@@ -153,11 +153,10 @@ ESLint 구성을 다음과 같이 수정합니다.
 
 ---
 ### Server vs Client
-<pre>
-Next.js에서는 서버 컴포넌트(Server Component)와 클라이언트 컴포넌트(Client Component)를 구분해 코드 일부가 서버 혹은 클라이언트에서 출력될 수 있도록 만들 수 있습니다.
-기본적으로 생성하는 모든 컴포넌트는 서버 컴포넌트입니다!
-클라이언트 컴포넌트로 변경/사용하려면 다음과 같이 컴포넌트 최상단에 'use client' 선언이 필요하고, 해당 선언이 없으면 서버 컴포넌트입니다.
-</pre>
+
+Next.js에서는 서버 컴포넌트(Server Component)와 클라이언트 컴포넌트(Client Component)를 구분해 코드 일부가 서버 혹은 클라이언트에서 출력될 수 있도록 만들 수 있습니다. <br/>
+기본적으로 생성하는 모든 컴포넌트는 서버 컴포넌트입니다! <br/>
+클라이언트 컴포넌트로 변경/사용하려면 다음과 같이 컴포넌트 최상단에 'use client' 선언이 필요하고, 해당 선언이 없으면 서버 컴포넌트입니다. <br/>
 
 <p>클라이언트 컴포넌트 또한 일부 정적 요소는 서버에서 렌더링합니다.<br>
 따라서 클라이언트 컴포넌트는 '서버 + 클라이언트'의 하이브리드 컴포넌트로 이해해야 합니다!</p>
@@ -170,6 +169,34 @@ export default function Component() {
 }
 ```
 <br/>
+
+서버 컴포넌트와 클라이언트 컴포넌트는 다음과 같이 사용할 수 있는 일부 API가 다릅니다. <br/>
+이런 구분을 통해, 서버 컴포넌트에서는 보안이나 캐싱, 성능, SEO 등의 이점을, 클라이언트 컴포넌트에서는 상호작용('click', 'load' 이벤트 등), 브라우저 API(window, document 등) 활용 등의 이점을 얻을 수 있습니다. <br/>
+
+서버 컴포넌트만 사용: <br/>
+
+- cookies
+- headers
+- redirect
+- generateMetadata
+- revalidatePath
+- ...
+
+
+클라이언트 컴포넌트만 사용: <br/>
+
+- useState
+- useEffect
+- onClick
+- onChange
+- useRouter
+- useParams
+- useSearchParams
+- useFormState
+- useOptimistic
+- ...
+ 
+각 서버와 클라이언트 컴포넌트에서 서로 맞지 않는 API를 사용하면 다음 이미지와 같이, 바로 에러를 표시하기 때문에 금방 구분할 수 있게 됩니다.
 
 [[TOP]](#index)
 
