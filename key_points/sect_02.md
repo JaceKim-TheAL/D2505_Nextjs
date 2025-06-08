@@ -30,6 +30,7 @@
 ![컴포넌트 계층구조](./images/s02_hierarchy.jpg)
 
 ##### 명시적 컴포넌트 계층 구조(Component Hierarchy)
+
 <table>
     <thead>
         <tr>
@@ -69,7 +70,6 @@
             <td><code>.js</code>, <code>.jsx</code>, <code>.tsx</code></td>
             <td>변화 레이아웃(탐색 시)</td>
         </tr>
-
     </tbody>
 </table>
 
