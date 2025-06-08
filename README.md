@@ -1,4 +1,4 @@
-[![My Skills](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
 
 # D2505_Nextjs
 <em>React 기반의 웹 애플리케이션 프레임워크</em>
@@ -14,4 +14,4 @@
 
 🚀 React를 사용하여 웹 애플리케이션을 만들 때 더 나은 성능과 사용자 경험을 원한다면 **Next.js**가 최고의 선택이 될 수 있습니다! 
 
-
+![메인이미지](./images/nextjs_main.jpg)  

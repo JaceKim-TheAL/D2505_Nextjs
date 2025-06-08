@@ -1,4 +1,4 @@
-![메인이미지](./images/nextjs_main.jpg)  
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
 
 ### INDEX
 1. 개요
