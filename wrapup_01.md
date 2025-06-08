@@ -1,23 +1,16 @@
 [![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://skillicons.dev)
 
 ### INDEX
-1. 개요
-2. 라우팅
-3. 라우팅 패턴
-4. 인증
-5. 서버 액션
-6. 최적화
-7. 배포
-
 <table border="1">
   <tr>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">1. 개요        </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">2. 라우팅      </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">3. 라우팅 패턴  </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">4. 인증        </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">5. 서버 액션   </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">6. 최적화      </a></td>
-    <td bgcolor="#EEEEEE"><a href="wrapup_0.md">7. 배포        </a></td>  
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_01.md">1. 개요        </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_02.md">2. 라우팅      </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_03.md">3. 라우팅 패턴  </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_04.md">4. 인증        </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_05.md">5. 서버 액션   </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_06.md">6. 최적화      </a></td>
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_07.md">7. 배포        </a></td>  
+    <td bgcolor="#EEEEEE" width="12%"><a href="wrapup_07.md">              </a></td>  
   </tr>
 </table>
 ---
