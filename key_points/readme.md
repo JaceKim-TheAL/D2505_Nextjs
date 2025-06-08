@@ -10,7 +10,7 @@
 - [6. 최적화      ][link_06]
 - [7. 배포        ][link_07]
 
-![메인이미지](./images/nextjs_main.jpg)  
+![메인이미지](../images/nextjs_main.jpg)  
 
 [link_01]: sect_01.md
 [link_02]: sect_02.md
