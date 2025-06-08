@@ -21,6 +21,7 @@
 - [Next.js 소개](#nextjs란)
 - [설치 및 구성](#설치-및-구성)  
 
+---
 ### Next.js 15의 주요 업데이트 내용
 
 <ul>
@@ -56,7 +57,7 @@
     <li>정적 페이지 생성 최적화와 서버 컴포넌트의 HMR 기능이 강화되었습니다.</li></ul>
     </li>
 </ul>
-
+  
 [[TOP]](#index)
 
 ---
@@ -64,7 +65,7 @@
 <p>
 <a href="Next.js">Next.js</a>는 <a href="https://vercel.com/" target="_blank">Vercel</a>에서 개발한 React 프레임워크로, 서버 사이드 렌더링(SSR), 클라이언트 사이드 렌더링(CSR), API 라우팅 등의 다양한 최적화 기능을 제공합니다.<br>Next.js를 사용하면, <a href="https://react.dev/" target="_blank">React</a>의 기본 기능을 확장해, 보다 빠르고 안정적으로 웹 애플리케이션을 개발할 수 있습니다.
 </p>
-
+  
 [[TOP]](#index)
 
 ---
@@ -73,7 +74,7 @@
 다음 명령으로 Next.js 프로젝트를 설치합니다.<br> 
 각 질문에 <code>Yes</code> 또는 <code>No</code>로 답변합니다.
 </p>
-
+ 
 ```shell
 npx create-next-app@latest <프로젝트이름>
     ✔ Would you like to use TypeScript? … Yes  # 타입스크립트 사용 여부
@@ -91,6 +92,42 @@ npx create-next-app@latest <프로젝트이름>
   <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">ESLint</a>: 코드 품질 확인 및 버그, 안티패턴(Anti-pattern)을 감지</li>
   <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank">Prettier - Code formatter</a>: 코드 스타일 및 포맷팅 관리, 일관된 코드 스타일을 적용 가능</li>
 </ul>
+
+Prettier 관련 패키지들을 설치합니다.
+```shell
+npm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss
+```
+
+ESLint 구성을 다음과 같이 수정합니다.
+/.eslintrc.json 
+```json
+{
+  "extends": [
+    "next/core-web-vitals", 
+    "next/typescript", 
+    "prettier"
+  ]
+}
+```
+
+<p>
+추가로, 프로젝트 루트 경로에 <code>.prettierrc</code> 파일을 생성하고 다음처럼 원하는 규칙을 추가합니다.<br>
+자세한 규칙은 <a href="https://prettier.io/docs/en/options" target="_blank">Prettier / Options</a> 에서 확인할 수 있습니다.
+</p>
+/.prettierrcJSON
+```json
+{
+  "semi": false,
+  "singleQuote": true,
+  "singleAttributePerLine": true,
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
 
 [[TOP]](#index)
 
