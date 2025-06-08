@@ -20,6 +20,7 @@
 - [Next.js 업데이트](#nextjs-15의-주요-업데이트-내용) 
 - [Next.js 소개](#nextjs란)
 - [설치 및 구성](#설치-및-구성)  
+- [Server vs Client](#server-vs-client)
 
 ---
 ### Next.js 15의 주요 업데이트 내용
