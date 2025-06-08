@@ -867,8 +867,8 @@ export default async function Xyz() {
 ```
 <br/>
 <br/>
-*1초 후에 비동기 컴포넌트 Abc와 Xyz를 출력하는 페이지*
 
+**1초 후에 비동기 컴포넌트 Abc와 Xyz를 출력하는 페이지**
 ```tsx
 [/app/async/page.tsx]
 
@@ -915,7 +915,8 @@ export default function Header() {
 다음 예제는 기본 로딩 애니메이션이 1초 동안 표시되고 그 후에 빨간색과 파란색 로딩 애니메이션이 각각 2초와 3초 동안 표시된 후에 Abc와 Xyz 컴포넌트가 출력됩니다. <br/>
 
 <br/>
-*비동기 컴포넌트 Abc와 Xyz를 출력하는 페이지*
+
+**비동기 컴포넌트 Abc와 Xyz를 출력하는 페이지**
 
 ```tsx
 [/app/async/page.tsx]
