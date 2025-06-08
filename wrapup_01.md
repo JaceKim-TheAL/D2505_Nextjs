@@ -2,15 +2,15 @@
 
 ### INDEX
 
-<table width="700px">
-  <tr width="100%">
-    <td width="100"><b href="wrapup_01.md">1. 개요        </b></td>
-    <td width="100"><a href="wrapup_02.md">2. 라우팅      </a></td>
-    <td width="100"><a href="wrapup_03.md">3. 라우팅 패턴  </a></td>
-    <td width="100"><a href="wrapup_04.md">4. 인증        </a></td>
-    <td width="100"><a href="wrapup_05.md">5. 서버 액션   </a></td>
-    <td width="100"><a href="wrapup_06.md">6. 최적화      </a></td>
-    <td width="100"><a href="wrapup_07.md">7. 배포        </a></td>  
+<table>
+  <tr>
+    <td><b href="wrapup_01.md">개요        </b></td>
+    <td><a href="wrapup_02.md">라우팅      </a></td>
+    <td><a href="wrapup_03.md">라우팅 패턴  </a></td>
+    <td><a href="wrapup_04.md">인증        </a></td>
+    <td><a href="wrapup_05.md">서버 액션   </a></td>
+    <td><a href="wrapup_06.md">최적화      </a></td>
+    <td><a href="wrapup_07.md">배포        </a></td>  
   </tr>
 </table>
 
