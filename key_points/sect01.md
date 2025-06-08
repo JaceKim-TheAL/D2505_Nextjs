@@ -1,6 +1,6 @@
 [![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)][nextjs15]
 [nextjs15]: https://nextjs-ko.org/docs/app/building-your-application/upgrading/version-15
-
+ 
 ### INDEX
 
 <table>
