@@ -17,9 +17,8 @@
 
 ---
 # 2. 라우팅
-- [Next.js 업데이트](#nextjs-15의-주요-업데이트-내용) 
-- [Next.js 소개](#nextjs란)
-- [설치 및 구성](#설치-및-구성)  
+- [페이지](#페이지)
+
 <br/>
 
 ---
@@ -73,8 +72,60 @@
     </tbody>
 </table>
 
+<table>
+    <thead>
+        <tr>
+            <th>추가 파일</th>
+            <th>설명</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>default</code></td>
+            <td><code>.js</code>, <code>.jsx</code>, <code>.tsx</code></td>
+        </tr>
+        <tr>
+            <td><code>global-error</code></td>
+            <td><code>.js</code>, <code>.jsx</code>, <code>.tsx</code></td>
+        </tr>
+        <tr>
+            <td><code>route</code></td>
+            <td><code>.js</code>, <code>.ts</code></td>
+        </tr>
+    </tbody>
+</table>
 
-### Next.js 15의 주요 업데이트 내용
+
+### 페이지
+Next.js는 폴더를 사용해 경로를 정의하는 파일 시스템 기반 라우터 방식을 사용하기 때문에, /app 폴더 내에 생성하는 각 폴더는 기본적으로 URL 경로를 의미합니다. <br/>
+예를 들어, 프로젝트에 /app/movies 폴더를 생성하면 /movies 경로 즉, http://localhost:3000/movies로 접근할 수 있습니다. <br/>
+그리고 접근한 그 경로에서 출력할 내용은 기본적으로 각 폴더의 page.tsx 컴포넌트에 작성합니다. <br/>
+ <br/>
+이렇게 매핑되는 각 경로 구간을 세그먼트(Segment)라고 합니다. <br/>
+
+![세그먼트](./images/s02_segment.jpg)
+<br/>
+
+- 세그먼트의 이해
+
+프로젝트 구조
+```shell
+├─app/
+│  ├─movies/
+│  │  └─page.tsx
+│  └─page.tsx
+```
+
+/app/page.tsx
+
+```tsx
+export default function Home() {
+  return <h1>Home page!</h1>
+}
+```
+http://localhost:3000/ 경로의 페이지 내용
+
+
 
 <br/>
 
