@@ -20,6 +20,7 @@
 - [페이지](#페이지)
 - [레이아웃](#레이아웃)
 - [컴포넌트 방식의 탐색](#컴포넌트-방식의-탐색)
+- [프로그래밍 방식의 탐색](#프로그래밍-방식의-탐색)
 
 <br/>
 
@@ -225,6 +226,105 @@ export default function MoviesLayout({
 ---
 ### 컴포넌트 방식의 탐색
 
+Next.js에서는 페이지 이동을 위해 <a> 태그가 아닌 <a href="https://nextjs.org/docs/app/getting-started/linking-and-navigating#link-component"><Link> 컴포넌트</a>를 사용합니다. <br/>
+<Link> 컴포넌트는 이동하는 페이지 전체를 새로고침하지 않고 최적화된 번들만 일부 로드하거나 서버 렌더링 가능 등의 Next.js 프로젝트 내에서 최적화된 페이지 탐색을 제공합니다. <br/>
+위에서 확인한, /components/Header.tsx 컴포넌트에서, 각 페이지로 이동할 수 있는 링크를 추가해봅시다. <br/>
+
+프로젝트 구조
+```shell
+├─app/
+│  ├─movies/
+│  │  ├─layout.tsx
+│  │  └─page.tsx
+│  ├─layout.tsx
+│  └─page.tsx
+├─components/
+│  └─Header.tsx
+```
+<br/>
+
+```tsx
+[/components/Header.tsx]
+
+import Link from 'next/link'
+
+export default function Header() {
+  return (
+    <header>
+      <nav className="flex">
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className="px-2">
+            {label}
+          </Link>
+        ))}
+      </nav>
+    </header>
+  )
+}
+```
+
+`usePathname` 훅을 사용해 반환되는 현재 경로(`pathname`)와 각 `<Link> 컴포넌트`의 경로를 비교해 현재 페이지인 경우 활성화 스타일을 추가할 수 있습니다.
+
+```tsx
+[/components/Header.tsx]
+
+'use client'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/movies', label: 'Movies' }
+]
+
+export default function Header() {
+  const pathname = usePathname()
+  return (
+    <header>
+      <nav className="flex">
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={`px-2 ${pathname === href ? 'bg-blue-600 text-white' : ''} `}>
+            {label}
+          </Link>
+        ))}
+      </nav>
+    </header>
+  )
+}
+```
+<br/>
+#### 미리 가져오기
+<Link /> 컴포넌트는 prefetch 옵션을 통해 뷰포트에 보여질 때, 연결된 경로(href)의 데이터를 미리 가져와 탐색 성능을 크게 향상시킬 수 있습니다. <br/>
+
+- - `null`(기본값): 정적 경로인 경우 모든 하위 경로를, 동적 경로인 경우 `loading.tsx`가 있는 가장 가까운 세그먼트까지만 미리 가져옵니다.
+- - `true`: 정적 경로와 동적 경로 모두 미리 가져옵니다.
+- - `false`: 미리 가져오지 않습니다.
+
+```tsx
+export default function Links() {
+  return (
+    <>
+      <Link href={someLink}>null</Link>
+      <Link prefetch={true} href={someLink}>true</Link>
+      <Link prefetch={false} href={someLink}>false</Link>
+    </>
+  )
+}
+```
+<br/>
+
+[[TOP]](#index)
+
+---
+### 프로그래밍 방식의 탐색
+상황에 따라 <Link> 컴포넌트를 사용하지 않고, 프로그래밍 방식으로 페이지를 이동해야 할 때가 있습니다. <br/>
+그 때는 Next.js에서 제공하는 useRouter 훅(Hook)을 사용해 다음과 같이 페이지 이동을 구현할 수 있습니다. <br/>
 
 
 <br/>
