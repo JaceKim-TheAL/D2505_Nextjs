@@ -273,6 +273,10 @@ export default function Header() {
 
 `usePathname` 훅을 사용해 반환되는 현재 경로(`pathname`)와 각 `<Link> 컴포넌트`의 경로를 비교해 현재 페이지인 경우 활성화 스타일을 추가할 수 있습니다.
 
+<pre>
+ⓘ use 접두사로 시작하는 훅은 클라이언트 컴포넌트('use client')에서만 사용할 수 있습니다.
+</pre>
+
 ```tsx
 [/components/Header.tsx]
 
@@ -307,6 +311,10 @@ export default function Header() {
 
 #### 미리 가져오기
 <Link /> 컴포넌트는 prefetch 옵션을 통해 뷰포트에 보여질 때, 연결된 경로(href)의 데이터를 미리 가져와 탐색 성능을 크게 향상시킬 수 있습니다. <br/>
+
+<pre>
+ⓘ 미리 가져오기 기능은 제품(Production) 모드에서만 활성화됩니다!
+</pre>
 
 - `null`(기본값): 정적 경로인 경우 모든 하위 경로를, 동적 경로인 경우 `loading.tsx`가 있는 가장 가까운 세그먼트까지만 미리 가져옵니다.
 - `true`: 정적 경로와 동적 경로 모두 미리 가져옵니다.
