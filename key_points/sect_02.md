@@ -341,6 +341,11 @@ export default function Links() {
 상황에 따라 <Link> 컴포넌트를 사용하지 않고, 프로그래밍 방식으로 페이지를 이동해야 할 때가 있습니다. <br/>
 그 때는 Next.js에서 제공하는 useRouter 훅(Hook)을 사용해 다음과 같이 페이지 이동을 구현할 수 있습니다. <br/>
 
+<pre>
+ⓦ useRouter 훅은 클라이언트 컴포넌트에서만 사용할 수 있습니다.
+   따라서 컴포넌트 상단에 'use client 선언이 필요합니다.
+</pre>
+
 ```tsx
 [/components/Header.tsx]
 
@@ -729,6 +734,10 @@ export default async function MovieDetails({
 페이지 출력 중 에러가 발생하면, 에러 상태를 표시할 수 있습니다.<br/>
 출력할 페이지와 같은 폴더에 error.tsx 파일을 생성합니다.<br/>
 <br/>
+<pre>
+ⓦ 사용자 입력의 유효성 검사나 잘못된 API 요청 등 클라이언트에서 발생하는 에러 상황까지 처리하기 위해, error.tsx는 클라이언트 컴포넌트여야 합니다.
+  따라서 컴포넌트 상단에 'use client' 선언이 필요합니다.
+</pre>
 
 **프로젝트 구조**
 ```shell
