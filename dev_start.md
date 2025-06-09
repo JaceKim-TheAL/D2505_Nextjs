@@ -9,20 +9,65 @@
 
 ```shell
 npx create-next-app my-next-app
-cd my-next-app
 ```
 
 - 명령어는 Next.js 프로젝트를 자동으로 설정하고 필요한 패키지를 설치
+
+```shell
+PS C:\github\practice\nextjs> npx -v
+10.9.2
+PS C:\github\practice\nextjs> npx create-next-app jaceapp
+√ Would you like to use TypeScript? ... No / Yes
+√ Would you like to use ESLint? ... No / Yes
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like your code inside a `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to use Turbopack for `next dev`? ... No / Yes
+√ Would you like to customize the import alias (`@/*` by default)? ... No / Yes
+Creating a new Next.js app in C:\GitHub\practice\nextjs\jaceapp.
+
+Using npm.
+
+Initializing project with template: app-tw
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+
+
+added 62 packages, and audited 63 packages in 16s
+
+10 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Initialized a git repository.
+
+Success! Created jaceapp at C:\GitHub\practice\nextjs\jaceapp
+
+PS C:\github\practice\nextjs>
+```
 <br/>
 
 ### Step2. 개발 서버 실행
 - 설치가 완료되면 프로젝트 폴더로 이동한 후 개발 서버를 시작
 
 ```shell
+cd my-next-app
 npm run dev
 ```
 
-- 이제 http://localhost:3000에서 기본 웹페이지를 확
+- 브라우저 `http://localhost:3000` 에서 기본 웹페이지를 확인
 <br/>
 
 ### Step3. 페이지 추가
