@@ -16,7 +16,8 @@
 <br/>
 
 ### 핵심노트
-- [[프로젝트 착수]](./dev_start.md)
-- [[Node.js 15 핵심정리]](./key_points/)
+- [[프레임웍 선택]](./docu/dev_choice.md) : Next JS vs React
+- [[프로젝트 착수]](./docu/dev_start.md)  : Next.js 프로젝트 개발 시작
+- [[Next JS 핵심]](./key_points/) : Next JS ver15 핵심정리
 
 ![메인이미지](./images/nextjs_main.jpg)  
