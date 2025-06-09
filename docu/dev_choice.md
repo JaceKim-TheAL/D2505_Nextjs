@@ -17,4 +17,4 @@ _"Next JS vs React : Which Framework to choose for Front end in 2025?"_  <br/>
 
 <p>Next.js는 React <strong>Framework</strong>인 반면, React는 <strong>JavaScript Library</strong>이다.</p>
 
-**Next.js**는 React `Framework`인 반면, **React**는 `JavaScript Library`이다.
+**Next.js**는 React `Framework` 인 반면, **React**는 `JavaScript Library` 이다.
