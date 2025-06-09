@@ -1,4 +1,4 @@
-[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](https://nextjs-ko.org/docs/)
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)](https://nextjs-ko.org/docs/)
 
 # D2505_Nextjs
 <em>React 기반의 웹 애플리케이션 프레임워크</em>
@@ -15,7 +15,8 @@
 🚀 React를 사용하여 웹 애플리케이션을 만들 때 더 나은 성능과 사용자 경험을 원한다면 **Next.js**가 최고의 선택이 될 수 있습니다!  
 <br/>
 
-### Node.js 15 핵심정리
- - [[key-points]](./key_points/)
+### 핵심노트
+- [[프로젝트 착수]](./dev_start.md)
+- [[Node.js 15 핵심정리]](./key_points/)
 
 ![메인이미지](./images/nextjs_main.jpg)  
