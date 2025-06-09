@@ -24,7 +24,6 @@
 - - [Prettier](#prettier)
 - - [자동 포맷팅 설정](#자동-포맷팅-설정)
 - [Server vs Client](#server-vs-client) 
-<br/>
 
 ---
 ### Next.js 15의 주요 업데이트 내용
