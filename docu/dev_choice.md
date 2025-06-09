@@ -3,7 +3,7 @@
 
 # React vs Next.js
 
-![Next JS vs React](./images/nextjs_vs_react.jpg)
+![Next JS vs React](../images/nextjs_vs_react.jpg)
 
 도대체 어떤 플랫폼을 사용할까? <br>
 _"Next JS vs React : Which Framework to choose for Front end in 2025?"_ 
