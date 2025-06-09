@@ -188,7 +188,7 @@ export default function Movies() {
 다음 코드의 {children} 부분에는 /app/page.tsx 컴포넌트가 출력됩니다.<br/>
 
 **http://localhost:3000/ 경로의 레이아웃**
-*[/app/layout.tsx]*
+- *[/app/layout.tsx]*
 ```tsx
 import './globals.css'
 import Header from '@/components/Header'
