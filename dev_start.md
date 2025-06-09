@@ -63,7 +63,6 @@ PS C:\github\practice\nextjs>
 - 설치가 완료되면 프로젝트 폴더로 이동한 후 개발 서버를 시작
 
 ```shell
-cd my-next-app
 npm run dev
 ```
 
