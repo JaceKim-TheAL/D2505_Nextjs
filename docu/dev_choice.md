@@ -61,10 +61,13 @@ _"Next JS vs React : Which Framework to choose for Front end in 2025?"_  <br/>
   <tr>
     <td>특장점</td>
     <td>
-        - 유연성: 다양한 상태 관리 라이브러리(Redux, Recoil 등)와 함께 사용
+        <li> <b>SPA(단일 페이지 애플리케이션)</b>를 만들고 싶다면 → React
+        <li> 유연성: 다양한 상태 관리 라이브러리(Redux, Recoil 등)와 함께 사용
     </td>
     <td>
-        - API 라우트 지원: 백엔드 API를 쉽게 만들 수 있음음
+        <li> <b>SEO가 중요한 웹사이트</b>를 만들고 싶다면 → Next.js
+        <li> 빠른 초기 로딩과 서버 렌더링이 필요한 경우 → Next.js
+        <li> API 라우트 지원: 백엔드 API를 쉽게 만들 수 있음
     </td>
   </tr>
 </table>
