@@ -1,5 +1,7 @@
 [![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)](../README.md)
- 
+
+# Next.js 15 핵심 정리
+
 ### INDEX
 
 - [1. 개요        ][link_01]
