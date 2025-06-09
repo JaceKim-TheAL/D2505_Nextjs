@@ -398,7 +398,7 @@ export default function Header() {
 기본적인 미리 가져오기가 자동으로 동작하는 <Link> 컴포넌트와 달리, 프로그래밍 방식의 탐색에서는 useEffect 훅과 router.prefetch() 메서드를 사용해 미리 가져오기를 구현할 수 있습니다.
 
 ```tsx
-[/components/Header.tsxTSX]
+[/components/Header.tsx]
 
 'use client'
 import { useEffect } from 'react'
