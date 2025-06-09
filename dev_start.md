@@ -1,3 +1,6 @@
+[main]: https://github.com/JaceKim-TheAL/D2505_Nextjs
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)][main]
+
 # Next.js 웹페이지 구현 방법
 
 
