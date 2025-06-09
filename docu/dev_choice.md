@@ -21,8 +21,9 @@ _"Next JS vs React : Which Framework to choose for Front end in 2025?"_  <br/>
 
 <table border="1">
   <th>
-    <td>React   </td>
-    <td>Next JS </td>
+    <td width="20%"> nbsp;   </td>
+    <td width="40%"> React   </td>
+    <td width="40%"> Next JS </td>
   </th>
   <tr>
     <td>기술스택</td>
@@ -47,13 +48,13 @@ _"Next JS vs React : Which Framework to choose for Front end in 2025?"_  <br/>
     </td>
   </tr>
   <tr>
-    <td>랜더링링</td>
+    <td>라우팅</td>
     <td>
-        <b>자체 라우팅기능 없음</b>
+        <b>자체 라우팅기능 없음</b> <br/> 
         react-router 같은 추가 라이브러리를 사용해야 함
     </td>
     <td>
-        <b>내장 라우팅</b>
+        <b>내장 라우팅</b> <br/> 
         pages/ 폴더 구조를 기반으로 자동으로 라우팅이 설정됨
     </td>
   </tr>
