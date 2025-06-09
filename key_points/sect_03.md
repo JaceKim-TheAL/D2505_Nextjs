@@ -6,8 +6,8 @@
 <table>
   <tr>
     <td><a href="sect_01.md">개요        </a></td>
-    <td><b href="sect_02.md">라우팅      </b></td>
-    <td><a href="sect_03.md">라우팅 패턴  </a></td>
+    <td><a href="sect_02.md">라우팅      </a></td>
+    <td><b href="sect_03.md">라우팅 패턴  </b></td>
     <td><a href="sect_04.md">인증        </a></td>
     <td><a href="sect_05.md">서버 액션   </a></td>
     <td><a href="sect_06.md">최적화      </a></td>
