@@ -11,7 +11,7 @@
 - [5. 서버 액션   ][link_05]
 - [6. 최적화      ][link_06]
 - [7. 배포        ][link_07]
-- [org.docs      ][link_docs] 
+- [[NextJS 공식문서]][link_docs] 
 
 [![메인이미지](../images/nextjs_main.jpg)](https://www.heropy.dev/p/n7JHmI)
 
