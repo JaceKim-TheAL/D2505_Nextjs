@@ -21,7 +21,6 @@ _"Next JS vs React : Which Framework to choose for Front end in 2025?"_  <br/>
 
 <table border="1">
   <th>
-    <td></td>
     <td>React   </td>
     <td>Next JS </td>
   </th>
