@@ -12,7 +12,7 @@
     <td><a href="sect_05.md">서버 액션   </a></td>
     <td><a href="sect_06.md">최적화      </a></td>
     <td><a href="sect_07.md">배포        </a></td>  
-    <td><a href="https://nextjs-ko.org/docs/">[Docs]</a></td>  
+    <td><a href="https://nextjs-ko.org/docs/">[공식문서]</a></td>  
   </tr>
 </table>
 
