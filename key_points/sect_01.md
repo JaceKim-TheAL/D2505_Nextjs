@@ -1,4 +1,4 @@
-[nextjs15]: [main]: https://github.com/JaceKim-TheAL/D2505_Nextjs/key_points
+[nextjs15]: https://github.com/JaceKim-TheAL/D2505_Nextjs/key_points
 [![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)][nextjs15]
 
 ### INDEX
