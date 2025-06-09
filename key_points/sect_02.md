@@ -1,5 +1,5 @@
-[nextjs15]: https://nextjs-ko.org/docs/
-[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react)][nextjs15]  
+[nextjs15]: readme.md
+[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)][nextjs15]
  
 ### INDEX
 
@@ -12,6 +12,7 @@
     <td><a href="sect_05.md">서버 액션   </a></td>
     <td><a href="sect_06.md">최적화      </a></td>
     <td><a href="sect_07.md">배포        </a></td>  
+    <td><a href="https://nextjs-ko.org/docs/">[공식문서]</a></td>  
   </tr>
 </table>
  
