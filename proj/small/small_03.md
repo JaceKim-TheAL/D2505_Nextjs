@@ -7,7 +7,7 @@
   <tr>
     <td><a href="small_01.md">1.개발도구   </a></td>
     <td><a href="small_02.md">2.BE준비    </a></td>
-    <td><a href="small_03.md">3.B아이템   </a></td>
+    <td><b href="small_03.md">3.B아이템   </b></td>
     <td><a href="small_04.md">4.B사용자   </a></td>
     <td><a href="small_05.md">5.BE배포    </a></td>
     <td><a href="small_06.md">6.FE준비    </a></td>
@@ -19,7 +19,7 @@
 </table>
 
 ---
-# S02. 백엔드 개발준비
+# S03. 아이템 조작기능 
 - [프로젝트앱 생성](#프로젝트앱-생성)
 - [앱서버 구동](#앱서버-구동)
 - [백엔드 폴더의 동작](#백엔드-폴더의-동작)
