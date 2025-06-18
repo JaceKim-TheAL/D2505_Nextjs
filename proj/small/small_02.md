@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td><a href="small_01.md">1.개발도구   </a></td>
-    <td><a href="small_02.md">2.BE준비    </a></td>
+    <td><b href="small_02.md">2.BE준비    </b></td>
     <td><a href="small_03.md">3.B아이템   </a></td>
     <td><a href="small_04.md">4.B사용자   </a></td>
     <td><a href="small_05.md">5.BE배포    </a></td>
