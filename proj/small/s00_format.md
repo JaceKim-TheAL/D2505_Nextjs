@@ -5,16 +5,16 @@
 
 <table>
   <tr>
-    <td><a href="sect_01.md">1.개발도구   </a></td>
-    <td><a href="sect_02.md">2.BE준비	   </a></td>
-    <td><a href="sect_03.md">3.Item조작     </a></td>
-    <td><a href="sect_04.md">4.User관리     </a></td>
-    <td><a href="sect_05.md">5.BE배포    </a></td>
-    <td><a href="sect_06.md">6.FE준비    </a></td>
-    <td><a href="sect_07.md">7.User등록    </a></td>
-    <td><a href="sect_08.md">8.Item조회    </a></td>
-    <td><a href="sect_09.md">9.FE배포    </a></td>
-    <td><a href="sect_10.md">10.브러시업   </a></td>
+    <td><a href="sect_01.md">1개발도구   </a></td>
+    <td><a href="sect_02.md">2BE준비	   </a></td>
+    <td><a href="sect_03.md">3아이템조작     </a></td>
+    <td><a href="sect_04.md">4사용자관리     </a></td>
+    <td><a href="sect_05.md">5BE배포    </a></td>
+    <td><a href="sect_06.md">6FE준비    </a></td>
+    <td><a href="sect_07.md">7사용자등록    </a></td>
+    <td><a href="sect_08.md">8아이템조회    </a></td>
+    <td><a href="sect_09.md">9FE배포    </a></td>
+    <td><a href="sect_10.md">10브러시업   </a></td>
   </tr>
 </table>
 
