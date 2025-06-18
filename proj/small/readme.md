@@ -1,4 +1,4 @@
-[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)](../README.md)
+[![적용기술](https://skillicons.dev/icons?i=pr,nextjs,ts,react,vercel)](../README.md)
 
 # 프로젝트 : 쇼핑몰 앱서비스 개발
 

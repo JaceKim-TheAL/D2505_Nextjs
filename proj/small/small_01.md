@@ -1,5 +1,5 @@
 [nextjs15]: readme.md
-[![적용기술](https://skillicons.dev/icons?i=nextjs,ts,react,vercel)][nextjs15]
+[![적용기술](https://skillicons.dev/icons?i=pr,nextjs,ts,react,vercel)][nextjs15]
  
 ### INDEX
 
