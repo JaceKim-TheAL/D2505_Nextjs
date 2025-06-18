@@ -184,15 +184,13 @@ http://localhost:3000/api/hello?name=Jace
 
 - 백엔드 개발을 시작하기 위한 기초 작업
 - 아이템관리(item폴더)와 사용자관리(user폴더) 생성
-- 작성/수정/삭제 등의 처리를 담당하는 파일<br/>
- 👉🏽 �🏽‍♂️ 💆🏽‍♀️ 💇�🏽 🧗🏽‍♂️ 🧗🏽☝🏿 👍🏿 👎🏿 
-  🛅 🚹 🚺 🚼 🚻 🚮 🎦 📶 🈁 🔣 ℹ️ 🔤 🔡 🔠 🆖 🆗 🆙 🆒 🆕 🆓 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔢 #️⃣ *️⃣ ⏏️ ▶️ ⏸ ⏯ ⏹ ⏺ ⏭ ⏮ 
-> - /app/api/item/create/route.js 
-> - /app/api/item/update/route.js 
-> - /app/api/item/delete/route.js 
-- 조회 처리를 담당하는 파일
-> - /app/api/item/readsingle/route.js 
-> - /app/api/item/readall/route.js 
+- 작성/수정/삭제 등의 처리를 담당하는 파일 <br/>
+ ☑️ /app/api/item/create/route.js <br/>
+ ☑️ /app/api/item/update/route.js <br/>
+ ☑️ /app/api/item/delete/route.js 
+- 조회 처리를 담당하는 파일 <br/>
+ ☑️ /app/api/item/readsingle/route.js <br/>
+ ☑️ /app/api/item/readall/route.js <br/>
 <br/>
 
 [[TOP]](#index)
