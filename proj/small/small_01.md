@@ -50,6 +50,15 @@ npm 버전 확인:
 npm -v # 10.9.2가 출력되어야 합니다.
 
 ```
+
+```powershell
+PS C:\GitHub\practice\nextjs> node -v
+v22.14.0
+PS C:\GitHub\practice\nextjs> npm -v
+10.9.2
+PS C:\GitHub\practice\nextjs>
+
+```
 <br/>
 
 [[TOP]](#index)
