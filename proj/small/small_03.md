@@ -20,14 +20,34 @@
 
 ---
 # S03. 아이템 조작기능 
-- [프로젝트앱 생성](#프로젝트앱-생성)
-- [앱서버 구동](#앱서버-구동)
-- [백엔드 폴더의 동작](#백엔드-폴더의-동작)
-- [버전별 폴더 구성](#버전별-폴더-구성)
-- [CRUD 파일 작성](#crud-파일-작성)
+- [아이템 작성1](#아이템-작성1)
+- []
+- []
+- []
+- []
+- []
 
 ---
-### 프로젝트앱 생성
+### 아이템 작성1
+
+
+[app/api/item/create/route.js]
+```js
+import { NextResponse } from 'next/server';
+
+export async function GET(request) {
+  return NextResponse.json({ message: '아이템 작성' });
+}
+```
+
+확인 : 
+http://localhost:3000/api/item/create
+
+```json
+{
+  "message": "아이템 작성"
+}
+```
 
 <br/>
 
