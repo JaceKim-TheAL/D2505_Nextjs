@@ -20,8 +20,39 @@
 
 ---
 # S01. 개발도구준비
+- [NextJS 개발준비](#nextjs-개발준비)
 - [웹사이트 vs 웹애플리케이션](#웹사이트-vs-웹애플리케이션)
 - [CRUD 조작](#crud-조작)
+
+---
+### NextJS 개발준비
+
+- 공식사이트 : https://nodejs.org/
+- 설치파일다운 : [Node.js® 다운로드](https://nodejs.org/ko/download)
+- 버전 : `LTS` 안정적인 버전, `CURRENT` 최신버전   cf. LTS 버전 권고
+- npm : Node Package Manager
+- 다운받은 설치파일을 실행하면, Node.js와 npm 모두 설치가 된다.
+- 버전 확인
+```powershell
+# Docker는 각 운영 체제별로 설치 지침을 제공합니다.
+# 공식 문서는 https://docker.com/get-started/에서 확인하세요.
+
+# Node.js Docker 이미지를 풀(Pull)하세요:
+docker pull node:22-alpine
+
+# Node.js 컨테이너를 생성하고 쉘 세션을 시작하세요:
+docker run -it --rm --entrypoint sh node:22-alpine
+
+# Node.js 버전 확인:
+node -v # "v22.16.0"가 출력되어야 합니다.
+
+npm 버전 확인:
+npm -v # 10.9.2가 출력되어야 합니다.
+
+```
+<br/>
+
+[[TOP]](#index)
 
 ---
 ### 웹사이트 vs 웹애플리케이션
