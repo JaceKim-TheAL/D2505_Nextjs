@@ -30,7 +30,7 @@
 - 공식사이트 : https://nodejs.org/
 - 설치파일다운 : [Node.js® 다운로드](https://nodejs.org/ko/download)
 - 버전 : `LTS` 안정적인 버전, `CURRENT` 최신버전  <br/>
-  🥰 LTS 버전 권고
+  🥰 cf. 참고로 LTS 버전 설치하기를 권고
 - npm : Node Package Manager
 - 다운받은 설치파일을 실행하면, Node.js와 npm 모두 설치가 된다.
 - 버전 확인
