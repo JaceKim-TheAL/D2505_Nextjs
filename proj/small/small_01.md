@@ -101,8 +101,3 @@ PS C:\GitHub\practice\nextjs>
 [[TOP]](#index)
 
 ---
-<br/>
-
-[[TOP]](#index)
-
----
