@@ -21,6 +21,7 @@
 ---
 # S01. 개발도구준비
 - [NextJS 개발준비](#nextjs-개발준비)
+- [VS Code 설치](#vs-code-설치)
 - [웹사이트 vs 웹애플리케이션](#웹사이트-vs-웹애플리케이션)
 - [CRUD 조작](#crud-조작)
 
@@ -60,6 +61,16 @@ PS C:\GitHub\practice\nextjs> npm -v
 PS C:\GitHub\practice\nextjs>
 
 ```
+<br/>
+
+[[TOP]](#index)
+
+---
+### VS Code 설치
+
+- 웹 애플리케이션 개발에서 가장 많이 사용되는 에디터
+- 다운로드 : https://code.visualstudio.com/download
+- Thunder Client 설치 : HTTP 요청 조작에 사용되면 VS Code 좌측에 번개 아이콘이 추가
 <br/>
 
 [[TOP]](#index)
