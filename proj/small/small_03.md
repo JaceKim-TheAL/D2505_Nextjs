@@ -168,7 +168,41 @@ mongoose를 통해 Schemadhk Model을 쉽게 사용하기 위함
 npm install mongoose
 ```
 
+[app/utils/database.js]
+```js
+import mongoose from 'mongoose'
 
+const MONGODB_URI = () => {}
+
+export default connectDB
+```
+프론트엔드에서 요청을 받아 응답을 반환하는 처리를 하지는 않으므로 request, NextResponse 등은 없다.
+{} 안에는 이 파일에서 실행할 데이터베이스와 연결 처리를 기술하면 된다. 
+<br/>
+
+[app/utils/database.js]
+```js
+import mongoose from 'mongoose';
+
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/next-market';
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://jacekimtheal:
+
+const MONGODB_URI = () => {
+    try {
+        mongoose.connect("mongodb+srv://jacekimtheal:jacekimtheal@cluster-jacekim.8pqgjqy.mongodb.net/?retryWrites=true&w=majority&appName=cluster-jacekim")
+        console.log("MongoDB connected successfully");
+    } catch (error) {
+        console.error("MongoDB connection error:", error);
+        throw new Error("Failed to connect to MongoDB");
+    }
+}
+
+export default connectDB
+
+```
+연결에 실패했을 때는 console.log()에서 DB연결 실패 메시지를 표시하고,
+throw를 사용해 에러가 발생한 것을 알려준다. 
+<br/>
 
 [[TOP]](#index)
 
