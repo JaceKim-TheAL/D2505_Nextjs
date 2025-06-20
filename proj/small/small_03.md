@@ -500,7 +500,6 @@ export async function PUT(request, context) {
 }
 ```
 - Update 이므로 PUT 방식으로 처리 
-- 
 
 ![Update-아이템](./images/s03_tc_update_item_01.png)
 - message는 업데이트 성공라고 뜨는데, 실제 데이터는 그대로??
@@ -568,7 +567,35 @@ export async function PUT(request, { params }) {
 ---
 ### 아이템 삭제
 > 삭제하기의 흐름은 수정하기와 거의 같음
+<br/>
+<br/>
 
+[app/api/item/delete/[id]/route.js] 
+```js
+import { NextResponse } from "next/server";
+import connectDB from "@/app/utils/database";
+import { ItemModel } from "../../../../utils/schemaModels";
+
+export async function DELETE(request, { params }) {
+    const { id } = params; // URL 파라미터에서 id 추출
+    try {
+        await connectDB(); // 데이터베이스 연결
+        const result = await ItemModel.deleteOne({ _id: id }); // 아이템 ID로 삭제
+        if (result.deletedCount === 0) {
+            return NextResponse.json({ message: "아이템이 존재하지 않습니다." }, { status: 404 });
+        }
+        return NextResponse.json({ message: "아이템 삭제 성공" }, { status: 200 });
+    } catch (error) {
+        console.error("아이템 삭제 중 오류 발생:", error);
+        return NextResponse.json({ message: "아이템 삭제 실패", error: error.message }, { status: 500 });
+    }
+}
+```
+
+- 삭제전 리스트 : http://localhost:3000/api/item/readall
+```json
+{"message":"아이템 조회 성공","items":[{"_id":"68557c94c733062413ea0bda","title":"아이템이름 수정","image":"이미지경로 수정","price":15000,"description":"아이템설명 수정","email":"jacekim@theal.ai.kr","__v":0},{"_id":"685591f38441a8c845d92ef5","title":"아이템이름","image":"이미지경로","price":10000,"description":"아이템설명","email":"jacekim@theal.ai.kr","__v":0},{"_id":"685591ff8441a8c845d92ef7","title":"아이템이름2","image":"이미지경로2","price":20000,"description":"아이템설명2","email":"jacekim@theal.ai.kr","__v":0},{"_id":"6855920e8441a8c845d92ef9","title":"아이템이름3","image":"이미지경로3","price":20000,"description":"아이템설명3","email":"jacekim@theal.ai.kr","__v":0}]}
+```
 <br/>
 
 [[TOP]](#index)
