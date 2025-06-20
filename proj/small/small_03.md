@@ -283,6 +283,7 @@ export async function POST(request) {
   } 
 }
 ```
+- await request.json() 는 단 1번만 실행하여야 한다, 중복 호출시 Error 발생!
 <br/>
 
 ![이미지](./images/s03_tc_create_item.png)
@@ -312,13 +313,30 @@ MongoDB connected successfully
  POST /api/item/create 201 in 1266ms
 
 ```
-
-
 <br/>
 
 [[TOP]](#index)
 
 ---
+### 모든 아이템 읽기
+<br/>
+
+[[TOP]](#index)
+
+---
+### 하나의 아이템 읽기
+<br/>
+
+[[TOP]](#index)
+
+---
+### 아이템 수정
+<br/>
+
+[[TOP]](#index)
+
+---
+### 아이템 삭제
 <br/>
 
 [[TOP]](#index)
