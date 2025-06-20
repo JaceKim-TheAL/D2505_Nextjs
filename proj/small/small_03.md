@@ -289,6 +289,17 @@ export async function POST(request) {
 - await request.json() 는 단 1번만 실행하여야 한다, 중복 호출시 Error 발생!
 <br/>
 
+[Body / JSON] <br/>
+```json
+{
+  "title": "아이템이름",
+  "image": "이미지경로",
+  "price": 10000,
+  "description": "아이템설명",
+  "email": "jacekim@theal.ai.kr"
+}
+```
+
 ![아이템작성](./images/s03_tc_create_item.png)
 
 ```console
