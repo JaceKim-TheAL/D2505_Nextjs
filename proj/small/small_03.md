@@ -477,7 +477,7 @@ TEST URL : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 > 수정 작업은 지금까지 만든 작성하기와 읽기의 처리를 조합한 것
 <br/>
 
-[app/api/item/update/[id]/route.js]
+[app/api/item/update/[id]/route.js] --- 미완성!!!
 ```js
 import { NextResponse } from 'next/server';
 import connectDB from '@/app/utils/database';
@@ -499,11 +499,69 @@ export async function PUT(request, context) {
     }
 }
 ```
-- Update 이므로 POST 방식으로 URL을 전송하고, PUT 함수로 처리하낟. 
+- Update 이므로 PUT 방식으로 처리 
+- 
 
 ![Update-아이템](./images/s03_tc_update_item_01.png)
+- message는 업데이트 성공라고 뜨는데, 실제 데이터는 그대로??
+<br/>
 <br/>
 
+[app/api/item/update/[id]/route.js] 
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { ItemModel } from '../../../../utils/schemaModels';
+
+export async function PUT(request, { params }) {
+    const { id } = params; // URL 파라미터에서 id 추출
+    const reqBody = await request.json();
+    try {
+        await connectDB(); // 데이터베이스 연결
+        await ItemModel.updateOne(
+            { _id: id },      // 아이템 ID로 조회
+            { $set: reqBody } // 요청 본문으로 업데이트
+        );
+        return NextResponse.json({ message: '아이템 업데이트 성공' }, { status: 200 });
+    } catch (error) {
+        console.error('아이템 업데이트 중 오류 발생:', error);
+        return NextResponse.json({ message: '아이템 업데이트 실패', error: error.message }, { status: 500 });
+    }
+}
+```
+
+[PUT] http://localhost:3000/api/item/update/68557c94c733062413ea0bda
+<br/>
+
+[Body / JSON] <br/>
+```json
+{
+  "title": "아이템이름 수정",
+  "image": "이미지경로 수정",
+  "price": 15000,
+  "description": "아이템설명 수정"
+}
+```
+- JSON값에 대한 오류 검토, 특히 마지막 항목에 쉼표(,) 붙히면 오류!!
+
+![Update-아이템](./images/s03_tc_update_item_02.png)
+
+- 결과확인 : http://localhost:3000/api/item/readsingle/68557c94c733062413ea0bda
+```json
+{
+  "message": "아이템 조회 성공",
+  "item": {
+    "_id": "68557c94c733062413ea0bda",
+    "title": "아이템이름 수정",
+    "image": "이미지경로 수정",
+    "price": 15000,
+    "description": "아이템설명 수정",
+    "email": "jacekim@theal.ai.kr",
+    "__v": 0
+  }
+}
+```
+<br/>
 
 [[TOP]](#index)
 
