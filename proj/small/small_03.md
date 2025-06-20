@@ -453,21 +453,20 @@ TEST URL : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 ![Read-하나의아이템](./images/s03_tc_readsingle_item_02.png)
 <br/>
 
-결과 : http://localhost:3000/api/item/readsingle/68557bc7fdbe2baa27736334
+결과 : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 ```json
 {
   "message": "아이템 조회 성공",
   "item": {
-    "_id": "68557bc7fdbe2baa27736334",
-    "title": "아이템이름",
-    "image": "이미지경로",
-    "price": 10000,
-    "description": "아이템설명",
+    "_id": "685591ff8441a8c845d92ef7",
+    "title": "아이템이름2",
+    "image": "이미지경로2",
+    "price": 20000,
+    "description": "아이템설명2",
     "email": "jacekim@theal.ai.kr",
     "__v": 0
   }
 }
-
 ```
 <br/>
 
@@ -475,7 +474,36 @@ TEST URL : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 
 ---
 ### 아이템 수정
+> 수정 작업은 지금까지 만든 작성하기와 읽기의 처리를 조합한 것
 <br/>
+
+[app/api/item/update/[id]/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { ItemModel } from '../../../../utils/schemaModels';
+
+export async function PUT(request, context) {
+    const regBody = await request.json();
+
+    try {
+        await connectDB(); // 데이터베이스 연결
+        await ItemModel.updateOne(
+            { _id: regBody.id }, // 아이템 ID로 조회
+            { $set: { title: regBody.title, price: regBody.price, description: regBody.description } } // 업데이트할 필드
+        );
+        return NextResponse.json({ message: '아이템 업데이트 성공' }, { status: 200 });
+    } catch (error) {
+        console.error('아이템 업데이트 중 오류 발생:', error);
+        return NextResponse.json({ message: '아이템 업데이트 실패', error: error.message }, { status: 500 });
+    }
+}
+```
+- Update 이므로 POST 방식으로 URL을 전송하고, PUT 함수로 처리하낟. 
+
+![Update-아이템](./images/s03_tc_update_item_01.png)
+<br/>
+
 
 [[TOP]](#index)
 
