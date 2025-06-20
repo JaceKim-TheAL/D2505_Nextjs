@@ -593,10 +593,9 @@ export async function DELETE(request, { params }) {
 ```
 
 - 삭제전 리스트 : http://localhost:3000/api/item/readall
-```json
+<pre>
 {"message":"아이템 조회 성공","items":[{"_id":"68557c94c733062413ea0bda","title":"아이템이름 수정","image":"이미지경로 수정","price":15000,"description":"아이템설명 수정","email":"jacekim@theal.ai.kr","__v":0},{"_id":"685591f38441a8c845d92ef5","title":"아이템이름","image":"이미지경로","price":10000,"description":"아이템설명","email":"jacekim@theal.ai.kr","__v":0},{"_id":"685591ff8441a8c845d92ef7","title":"아이템이름2","image":"이미지경로2","price":20000,"description":"아이템설명2","email":"jacekim@theal.ai.kr","__v":0},{"_id":"6855920e8441a8c845d92ef9","title":"아이템이름3","image":"이미지경로3","price":20000,"description":"아이템설명3","email":"jacekim@theal.ai.kr","__v":0}]}
-```
-<br/>
+</pre>
 
 [[TOP]](#index)
 
