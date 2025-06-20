@@ -289,6 +289,16 @@ export async function POST(request) {
 - await request.json() 는 단 1번만 실행하여야 한다, 중복 호출시 Error 발생!
 <br/>
 
+
+▶️ Item작성 테스트
+
+- VS Code의 좌측에 번개모양(Thunder Client) 이모티콘을 클릭
+- New Request 를 클릭
+
+[POST] http://localhost:3000/api/item/create 
+<br/>
+<br/>
+
 [Body / JSON] <br/>
 ```json
 {
