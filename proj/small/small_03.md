@@ -607,7 +607,7 @@ export async function DELETE(request, { params }) {
 </pre>
 <br/>
 
-![Delete-아이템](./images/s03_tc_delete_item_01.png)
+![Delete-아이템](./images/s03_tc_delete_item.png)
 
 <br/>
 - 삭제후 리스트 : http://localhost:3000/api/item/readall
