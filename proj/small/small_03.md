@@ -50,9 +50,27 @@ http://localhost:3000/api/item/create
 }
 ```
 
-- 아이템 작성을 위해서는 데이터를 받는 단계가 필요
+- Thunder Client 에서 아이템 작성
+> 아이템 작성을 위해서는 데이터를 받는 단계가 필요
 > 데이터는 실제로는 프론트엔드에서 전달되지만 개발단계에서 Thunder Client를 사용
 <br/>
+
+[app/api/item/create/route.js]
+```js
+import { NextResponse } from 'next/server';
+
+export async function GET(request) {
+  return NextResponse.json({ message: '아이템 작성 (GET)' })
+}
+
+export async function POST(request) {
+  console.log(await request.json) 
+  return NextResponse.json({ message: '아이템 작성 (POST)' })
+}
+```
+![이미지](images/s03_tc_request_get.png)
+
+![이미지](images/s03_tc_request_post.png)
 
 [[TOP]](#index)
 
