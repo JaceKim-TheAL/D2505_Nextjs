@@ -21,6 +21,7 @@
 ---
 # S03. 아이템 조작기능 
 - [아이템 작성1](#아이템-작성1) : 백엔드 작업을 위한 기초작업
+- [MongoDB](#mongodb)
 - [아이템 작성2](#아이템-작성2) : 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장
 - []
 
@@ -83,11 +84,7 @@ export async function POST(request) {
 [[TOP]](#index)
 
 ---
-### 아이템 작성2
-> 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
-<br/>
-
-<b>MongoDB</b> <br/>
+### MongoDB
 MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 NoSQL 데이터베이스
 
 🧠 MongoDB의 핵심 개념 <br/>
@@ -144,8 +141,13 @@ db.users.deleteOne({ name: "Jace" });
 [[TOP]](#index)
 
 ---
-### 
+### 아이템 작성2
+> 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
+<br/>
 
+[[TOP]](#index)
+
+---
 <br/>
 
 [[TOP]](#index)
