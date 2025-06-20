@@ -346,6 +346,7 @@ export async function GET(request) {
 <br/>
 
 - ModgoDB에서 데이터 읽기를 수행하는 기능은 Model 안에 있으므로 ItemModel을 임포트
+
 [app/api/item/readall/route.js]
 ```js
 import { NextResponse } from 'next/server';
