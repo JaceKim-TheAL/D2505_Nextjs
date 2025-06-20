@@ -197,6 +197,7 @@ const connectDB = () => {
 export default connectDB
 
 ```
+- <db_password>에 등록된 Cluster DB의 비밀번호를 입력
 - 연결에 실패했을 때는 console.log()에서 DB연결 실패 메시지를 표시하고,
 - throw를 사용해 에러가 발생한 것을 알려준다. 
 <br/>
