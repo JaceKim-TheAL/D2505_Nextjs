@@ -146,6 +146,18 @@ db.users.deleteOne({ name: "Jace" });
 > 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
 <br/>
 
+- MongoDB 드라이버 연결
+1. 드라이버와 버전을 선택 : Node.js ver6.7 이상
+2. 드라이버 설치 : `npm install mongodb`
+3. 연결 문자열을 애플리케이션 코드에 추가
+```shell
+mongodb+srv://jacekimtheal:<db_password>@cluster-jacekim.8pqgjqy.mongodb.net/?retryWrites=true&w=majority&appName=cluster-jacekim
+```
+> - <db_password>를 jacekimtheal 데이터베이스 사용자 의 비밀번호로 바꾸세요. 
+> - 모든 옵션 매개변수가 URL로 인코딩 되었는지 확인하세요
+
+
+
 [[TOP]](#index)
 
 ---
