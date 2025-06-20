@@ -28,8 +28,81 @@
 
 ---
 ### 사용자 등록 기능
-
+> 등록 기능을 만드는 방법과 제약을 부여하는 Schema 작성 방법 소개
 <br/>
+
+▶️ USER 스키마 추가 <br/>
+- 흐름자체는 아이템 데이터 작성하기와 유사
+- 아이템 데이터가 아니라 사용자 데이터이므로, 새로운 Schema와 Model이 필요
+- 사용자 데이터로 사용자이름, 이메일주소, 비밀번호 3가지를 저장
+
+[app/utils/schemaModels.js]
+```js
+import mongoose from "mongoose";
+import { title } from "process";
+
+const Schema = mongoose.Schema;
+
+const ItemSchema = new Schema({
+    title: { type: String, required: true },
+    image: { type: String, required: true },
+    price: { type: Number, required: true },
+    description: { type: String, required: true },
+    email: { type: String, required: true }
+});
+
+const UserSchema = new Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+});
+
+export const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
+export const ItemModel = mongoose.models.Item || mongoose.model("Item", ItemSchema);
+
+```
+<br/>
+
+
+▶️ USER 등록 <br/>
+
+[app/api/user/register/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { UserModel } from '../../../utils/schemaModels';
+
+export async function POST(request) {
+    const reqBody = await request.json();
+
+    try {
+        await connectDB();
+        await UserModel.create(reqBody);
+        return NextResponse.json({ message: '사용자 등록 성공' }, { status: 201 });
+
+    } catch (error) {
+        console.error('Database connection error:', error);
+        return NextResponse.json({ message: '사용자 등록 실패' }, { status: 500 });
+    }   
+}
+```
+<br/>
+
+[POST] http://localhost:3000/api/user/register   
+
+[Body / JSON]
+```json
+{
+  "name": "jace",
+  "email": "jace@gmail.com",
+  "password": "password"
+}
+```
+<br/>
+
+[!사용자등록](./images/s04_register_user.png)
+<br>
+
 
 [[TOP]](#index)
 
