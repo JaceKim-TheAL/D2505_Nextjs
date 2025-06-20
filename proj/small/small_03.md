@@ -68,9 +68,11 @@ export async function POST(request) {
   return NextResponse.json({ message: '아이템 작성 (POST)' })
 }
 ```
-![이미지](images/s03_tc_request_get.png)
+![이미지](./images/s03_tc_request_get.png)
 
-![이미지](images/s03_tc_request_post.png)
+![이미지](./images/s03_tc_request_post.png)
+
+![이미지](./images/s03_tc_request_json_content.png)
 
 [[TOP]](#index)
 
