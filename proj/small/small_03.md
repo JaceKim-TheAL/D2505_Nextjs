@@ -121,14 +121,23 @@ db.users.deleteOne({ name: "Jace" });
 - 실시간 분석 시스템
 - IoT 데이터 저장
 - 사용자 프로필, 게시글, 채팅 로그 등 유연한 구조가 필요한 서비스
-혹시 MongoDB를 직접 써보고 싶다면, MongoDB Atlas에서 무료 클러스터를 만들어볼 수 있어요.
-원한다면 Node.js나 Python에서 MongoDB를 연결하는 방법도 알려줄게요. 😄 관심 있어?
 
 
 🌐 공식사이트 : [[MongoDB Atlas]](https://www.mongodb.com/ko-kr/docs/manual/) <br/>
-- MongoDB : 로컬 환경, 즉 로컬 PC안에 데이터를 저장
-- MongoDB Atlas : 클라우드, 즉 온라인에 데이터를 저장
-
+<table>
+  <tr>
+    <td>MongoDB</td>
+    <td>
+      로컬 환경, 즉 로컬 PC안에 데이터를 저장
+    </td>
+  </tr>
+  <tr>
+    <td>MongoDB Atlas</td>
+    <td>
+      클라우드, 즉 온라인에 데이터를 저장
+    </td>
+  </tr>
+</table>
 
 <br/>
 
