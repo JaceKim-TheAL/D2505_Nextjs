@@ -324,7 +324,6 @@ MongoDB connected successfully
 ### 모든 아이템 읽기
 <br/>
 
-- 읽기 조작이 전부이므로 POST가 아니라 GET을 사용
 
 [app/api/item/readall/route.js]
 ```js
@@ -343,9 +342,9 @@ export async function GET(request) {
   return NextResponse.json({ message: 'Read All Item' }, { status: 405 });
 }
 ```
+- 읽기 조작이 전부이므로 POST가 아니라 GET을 사용
 <br/>
 
-- ModgoDB에서 데이터 읽기를 수행하는 기능은 Model 안에 있으므로 ItemModel을 임포트
 
 [app/api/item/readall/route.js]
 ```js
@@ -364,6 +363,8 @@ export async function GET(request) {
   }
 }
 ```
+- ModgoDB에서 데이터 읽기를 수행하는 기능은 Model 안에 있으므로 ItemModel을 임포트
+
 <br/>
 
 ![Read-All아이템](./images/s03_tc_readall_item.png)
