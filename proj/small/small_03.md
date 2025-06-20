@@ -399,7 +399,7 @@ export async function GET(request, { params }) {
 - 하나의 아이템은 [id]폴더 아래에 route.js를 생성
 
 
-[http://localhost:3000/api/item/readsingle/68557bc7fdbe2baa27736334]
+TEST URL : http://localhost:3000/api/item/readsingle/68557bc7fdbe2baa27736334
 
 ![Read-하나의아이템](./images/s03_tc_readsingle_item_01.png)
 
