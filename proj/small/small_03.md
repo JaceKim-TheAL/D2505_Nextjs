@@ -72,6 +72,7 @@ export async function POST(request) {
   Response에서 확인!!
 - 응답이 NextResponse 인 이유는 Next.js에서만 사용할 수 있는 특별한 코드이기 때문
 - request엣 Thunder Client에서 보낸 JSON 데이터가 들어 있을 것이므로, console.log()를 사용해서 확인
+- 이를 통해 백엔드에서 데이터를 받는 방법을 알았고, 이후 데이터베이스인 MongoDB 설정과 접속후 데이터 저장을 구현
 
 ![이미지](./images/s03_tc_request_get.png)
 
