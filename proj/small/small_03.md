@@ -260,20 +260,59 @@ export const ItemModel = mongoose.models.Item || mongoose.model("Item", ItemSche
 [app/api/item/create/route.js]
 ```js
 import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { ItemModel } from '../../../utils/schemaModels';
 
 export async function GET(request) {
   return NextResponse.json({ message: '아이템 작성 (GET)' })
 }
 
 export async function POST(request) {
-  try {
-    console.log(await request.json())
-    await co 
+  const regBody = await request.json();
+  console.log(regBody);
 
-  }
-  return NextResponse.json({ message: '아이템 작성 (POST)' })
+  try {
+    // console.log(await request.json())
+    await connectDB()                  // 데이터베이스 연결
+    await ItemModel.create(regBody)    // 아이템 생성
+    // return NextResponse.json({ message: '아이템 작성 성공' })
+    return NextResponse.json({ message: '아이템 작성 성공', item: regBody }, { status: 201 });    
+  } catch (error) {
+    console.error('아이템 작성 중 오류 발생:', error);
+    return NextResponse.json({ message: '아이템 작성 실패', error: error.message }, { status: 500 });
+  } 
 }
 ```
+<br/>
+
+![이미지](./images/s03_tc_request_get.png)
+
+```console
+PS C:\GitHub\practice\nextjs\next-market> npm run dev
+
+> next-market@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.3.3 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.54.82:3000
+
+ ✓ Starting...
+ ✓ Ready in 954ms
+ ○ Compiling /api/item/create ...
+ ✓ Compiled /api/item/create in 598ms
+{
+  title: '아이템이름',
+  image: '이미지경로',
+  price: 10000,
+  description: '아이템설명',
+  email: 'jacekim@theal.ai.kr'
+}
+MongoDB connected successfully
+ POST /api/item/create 201 in 1266ms
+
+```
+
 
 <br/>
 
