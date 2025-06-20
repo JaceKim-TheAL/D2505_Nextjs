@@ -100,7 +100,7 @@ export async function POST(request) {
 ```
 <br/>
 
-[!사용자등록](./images/s04_register_user.png)
+![USER-사용자등록](./images/s04_register_user.png)
 <br>
 
 
