@@ -158,15 +158,15 @@ mongodb+srv://jacekimtheal:<db_password>@cluster-jacekim.8pqgjqy.mongodb.net/?re
 > 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
 <br/>
 
-- MongoDB와의 연결
-
-Next.js에서 MongoDB의 연결에서는 이란적으로 mongoose 라는 패키지를 사용
-mongoose를 통해 Schemadhk Model을 쉽게 사용하기 위함
-패키지 설치
+▶️ MongoDB와의 연결 <br/>
+- Next.js에서 MongoDB의 연결에서는 이란적으로 mongoose 라는 패키지를 사용
+- mongoose를 통해 Schemadhk Model을 쉽게 사용하기 위함
+- 패키지 설치
 
 ```powershell
 npm install mongoose
 ```
+<br/>
 
 [app/utils/database.js]
 ```js
@@ -176,8 +176,8 @@ const connectDB = () => {}
 
 export default connectDB
 ```
-프론트엔드에서 요청을 받아 응답을 반환하는 처리를 하지는 않으므로 request, NextResponse 등은 없다.
-{} 안에는 이 파일에서 실행할 데이터베이스와 연결 처리를 기술하면 된다. 
+- 프론트엔드에서 요청을 받아 응답을 반환하는 처리를 하지는 않으므로 request, NextResponse 등은 없다.
+- {} 안에는 이 파일에서 실행할 데이터베이스와 연결 처리를 기술하면 된다. 
 <br/>
 
 [app/utils/database.js]
@@ -197,8 +197,8 @@ const connectDB = () => {
 export default connectDB
 
 ```
-연결에 실패했을 때는 console.log()에서 DB연결 실패 메시지를 표시하고,
-throw를 사용해 에러가 발생한 것을 알려준다. 
+- 연결에 실패했을 때는 console.log()에서 DB연결 실패 메시지를 표시하고,
+- throw를 사용해 에러가 발생한 것을 알려준다. 
 <br/>
 
 
@@ -221,6 +221,9 @@ MongoDB connected successfully
  POST /api/item/create 200 in 1106ms
 
 ```
+- DE연결에 성공했음을 consol창에서 확인
+
+
 
 <br/>
 
