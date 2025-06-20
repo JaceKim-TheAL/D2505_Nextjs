@@ -76,11 +76,11 @@ export async function POST(request) {
 - request엣 Thunder Client에서 보낸 JSON 데이터가 들어 있을 것이므로, console.log()를 사용해서 확인
 - 이를 통해 백엔드에서 데이터를 받는 방법을 알았고, 이후 데이터베이스인 MongoDB 설정과 접속후 데이터 저장을 구현
 
-![이미지](./images/s03_tc_request_get.png)
+![REQ-GET방식](./images/s03_tc_request_get.png)
 
-![이미지](./images/s03_tc_request_post.png)
+![REQ-POST방식](./images/s03_tc_request_post.png)
 
-![이미지](./images/s03_tc_request_json_content.png)
+![REQ-Body-JSON](./images/s03_tc_request_json_content.png)
 
 <br/>
 
@@ -289,7 +289,7 @@ export async function POST(request) {
 - await request.json() 는 단 1번만 실행하여야 한다, 중복 호출시 Error 발생!
 <br/>
 
-![이미지](./images/s03_tc_create_item.png)
+![아이템작성](./images/s03_tc_create_item.png)
 
 ```console
 PS C:\GitHub\practice\nextjs\next-market> npm run dev
@@ -322,6 +322,53 @@ MongoDB connected successfully
 
 ---
 ### 모든 아이템 읽기
+<br/>
+
+- 읽기 조작이 전부이므로 POST가 아니라 GET을 사용
+
+[app/api/item/readall/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+
+export async function GET(request) {
+  connectDB();
+  // 데이터베이스 연결은 connectDB() 함수에서 처리되므로, 여기서는 별도로 처리할 필요 없음.
+  // 데이터베이스에서 아이템을 읽어오는 로직을 추가해야 합니다.
+  // 예시로, ItemModel.find()를 사용하여 모든 아이템을 가져올 수 있습니다.
+  // const items = await ItemModel.find({});
+  // return NextResponse.json({ items }, { status: 200 });
+  // 현재는 단순히 메시지를 반환합니다.
+    
+  return NextResponse.json({ message: 'Read All Item' }, { status: 405 });
+}
+```
+<br/>
+
+- ModgoDB에서 데이터 읽기를 수행하는 기능은 Model 안에 있으므로 ItemModel을 임포트
+[app/api/item/readall/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { ItemModel } from '../../../utils/schemaModels';
+
+export async function GET(request) {
+  try {
+    await connectDB(); // 데이터베이스 연결
+    const items = await ItemModel.find({}); // 모든 아이템 조회
+    return NextResponse.json({ message: '아이템 조회 성공', items }, { status: 200 });
+  } catch (error) {
+    console.error('아이템 조회 중 오류 발생:', error);
+    return NextResponse.json({ message: '아이템 조회 실패', error: error.message }, { status: 500 });
+  }
+}
+```
+<br/>
+
+![Read-All아이템](./images/s03_tc_readall_item.png)
+
+
+
 <br/>
 
 [[TOP]](#index)
