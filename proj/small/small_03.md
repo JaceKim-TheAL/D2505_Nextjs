@@ -86,6 +86,55 @@ export async function POST(request) {
 ### 아이템 작성2
 > 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
 
+- MongoDB : 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 NoSQL 데이터베이스
+
+🧠 MongoDB의 핵심 개념 <br/>
+- Document: JSON과 유사한 BSON(Binary JSON) 형식으로 저장되는 데이터 단위
+- Collection: 여러 Document를 담는 그릇, RDB의 테이블과 비슷
+- Database: 여러 Collection을 포함하는 상위 개념
+
+💡특징 <br/>
+- 스키마 유연성: 미리 정해진 구조 없이 다양한 형태의 데이터를 저장 가능
+- 확장성: 수평 확장이 쉬워서 대용량 데이터 처리에 유리
+- 빠른 읽기/쓰기 성능: 특히 읽기 속도가 빠르고, 인덱스를 다양하게 지원
+- 분산 시스템 지원: Replica Set, Sharding 등으로 고가용성과 확장성 확보
+
+🔧 사용 예시 (CRUD) <br/>
+```javascript
+// Create
+db.users.insertOne({ name: "Jace", age: 28 });
+
+// Read
+db.users.find({ age: { $gt: 20 } });
+
+// Update
+db.users.updateOne({ name: "Jace" }, { $set: { age: 29 } });
+
+// Delete
+db.users.deleteOne({ name: "Jace" });
+```
+<br/>
+
+🌐 어디에 쓰이나요? <br/>
+- 실시간 분석 시스템
+- IoT 데이터 저장
+- 사용자 프로필, 게시글, 채팅 로그 등 유연한 구조가 필요한 서비스
+혹시 MongoDB를 직접 써보고 싶다면, MongoDB Atlas에서 무료 클러스터를 만들어볼 수 있어요.
+원한다면 Node.js나 Python에서 MongoDB를 연결하는 방법도 알려줄게요. 😄 관심 있어?
+
+
+🌐 공식사이트 : [[MongoDB Atlas]](https://www.mongodb.com/ko-kr/docs/manual/) <br/>
+- MongoDB : 로컬 환경, 즉 로컬 PC안에 데이터를 저장
+- MongoDB Atlas : 클라우드, 즉 온라인에 데이터를 저장
+
+
+<br/>
+
+[[TOP]](#index)
+
+---
+### 
+
 <br/>
 
 [[TOP]](#index)
