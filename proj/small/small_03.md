@@ -85,8 +85,10 @@ export async function POST(request) {
 ---
 ### 아이템 작성2
 > 데이터베이스를 설정하고 Next.js를 연결해 데이터를 저장한다. 
+<br/>
 
-- MongoDB : 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 NoSQL 데이터베이스
+<b>MongoDB</b> <br/>
+MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 NoSQL 데이터베이스
 
 🧠 MongoDB의 핵심 개념 <br/>
 - Document: JSON과 유사한 BSON(Binary JSON) 형식으로 저장되는 데이터 단위
@@ -115,7 +117,7 @@ db.users.deleteOne({ name: "Jace" });
 ```
 <br/>
 
-🌐 어디에 쓰이나요? <br/>
+⚓️ 어디에 쓰이나요? <br/>
 - 실시간 분석 시스템
 - IoT 데이터 저장
 - 사용자 프로필, 게시글, 채팅 로그 등 유연한 구조가 필요한 서비스
