@@ -322,8 +322,8 @@ MongoDB connected successfully
 
 ---
 ### 모든 아이템 읽기
+읽기 기능을 구현
 <br/>
-
 
 [app/api/item/readall/route.js]
 ```js
@@ -342,6 +342,7 @@ export async function GET(request) {
   return NextResponse.json({ message: 'Read All Item' }, { status: 405 });
 }
 ```
+- 데이터를 읽기 위해서는 먼저 DB와 연결
 - 읽기 조작이 전부이므로 POST가 아니라 GET을 사용
 <br/>
 
