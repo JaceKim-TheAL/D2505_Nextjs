@@ -30,6 +30,7 @@
 ---
 ### 아이템 작성1
 
+- 템플릿 코드 작성
 
 [app/api/item/create/route.js]
 ```js
@@ -49,6 +50,8 @@ http://localhost:3000/api/item/create
 }
 ```
 
+- 아이템 작성을 위해서는 데이터를 받는 단계가 필요
+> 데이터는 실제로는 프론트엔드에서 전달되지만 개발단계에서 Thunder Client를 사용
 <br/>
 
 [[TOP]](#index)
