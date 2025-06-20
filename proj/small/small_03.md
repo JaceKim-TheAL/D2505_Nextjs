@@ -285,7 +285,7 @@ export async function POST(request) {
 ```
 <br/>
 
-![이미지](./images/s03_tc_request_get.png)
+![이미지](./images/s03_tc_create_item.png)
 
 ```console
 PS C:\GitHub\practice\nextjs\next-market> npm run dev
