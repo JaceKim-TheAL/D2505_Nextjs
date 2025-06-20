@@ -103,6 +103,7 @@ export async function POST(request) {
 ![USER-사용자등록](./images/s04_register_user.png)
 <br>
 
+[MongoDB Atlas]
 ![DB-MongoDB](./images/s04_db_user_model.png)
 <br/>
 
