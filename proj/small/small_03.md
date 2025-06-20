@@ -322,7 +322,7 @@ MongoDB connected successfully
 
 ---
 ### 모든 아이템 읽기
-읽기 기능을 구현
+> 읽기 기능을 구현
 <br/>
 
 [app/api/item/readall/route.js]
@@ -378,7 +378,32 @@ export async function GET(request) {
 
 ---
 ### 하나의 아이템 읽기
+> 얼핏 간단하게 보이는 '하나의 아이템 읽기' 처리에는 사실 주의해야할 점이 있다.
 <br/>
+
+[app/api/item/readsingle/[id]/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+
+export async function GET(request, { params }) {
+    try {
+        await connectDB(); // 데이터베이스 연결
+        return NextResponse.json({ message: '아이템 조회 (GET)' });
+    } catch (error) {
+        return NextResponse.json({ message: '아이템 조회 실패', error: error.message }, { status: 500 });
+    }
+}
+
+```
+- 하나의 아이템은 [id]폴더 아래에 route.js를 생성
+<br/>
+
+![Read-하나의아이템](./images/s03_tc_readsingle_item_01.png)
+
+
+
+
 
 [[TOP]](#index)
 
