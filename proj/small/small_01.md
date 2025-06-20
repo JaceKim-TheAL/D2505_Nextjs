@@ -71,6 +71,11 @@ PS C:\GitHub\practice\nextjs>
 - 웹 애플리케이션 개발에서 가장 많이 사용되는 에디터
 - 다운로드 : https://code.visualstudio.com/download
 - Thunder Client 설치 : HTTP 요청 조작에 사용되면 VS Code 좌측에 번개 아이콘이 추가
+> 1. 설치 후 좌측 사이드바에 번개 아이콘이 생겨요. 클릭하면 Thunder Client가 열립니다.
+> 2. 상단의 "New Request" 버튼 클릭
+> 3. 요청할 API의 Method(GET, POST 등), URL, Headers, Body 등을 입력
+> 4. Send 버튼을 누르면 응답 결과가 하단에 표시됩니다
+
 <br/>
 
 [[TOP]](#index)
