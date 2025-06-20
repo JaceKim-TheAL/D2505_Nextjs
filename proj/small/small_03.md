@@ -453,6 +453,24 @@ TEST URL : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 ![Read-하나의아이템](./images/s03_tc_readsingle_item_02.png)
 <br/>
 
+결과 : http://localhost:3000/api/item/readsingle/68557bc7fdbe2baa27736334
+```json
+{
+  "message": "아이템 조회 성공",
+  "item": {
+    "_id": "68557bc7fdbe2baa27736334",
+    "title": "아이템이름",
+    "image": "이미지경로",
+    "price": 10000,
+    "description": "아이템설명",
+    "email": "jacekim@theal.ai.kr",
+    "__v": 0
+  }
+}
+
+```
+<br/>
+
 [[TOP]](#index)
 
 ---
