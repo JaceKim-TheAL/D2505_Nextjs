@@ -9,7 +9,7 @@
     <td><a href="small_02.md">2.BE준비    </a></td>
     <td><a href="small_03.md">3.B아이템   </a></td>
     <td><a href="small_04.md">4.B사용자   </a></td>
-    <td><a href="small_05.md">5.BE배포    </a></td>
+    <td><b href="small_05.md">5.BE배포    </b></td>
     <td><a href="small_06.md">6.FE준비    </a></td>
     <td><a href="small_07.md">7.F사용자   </a></td>
     <td><a href="small_08.md">8.F아이템   </a></td>
@@ -19,27 +19,11 @@
 </table>
 
 ---
-# S07. 사용자등록 및 로그인
-- [필수 폴더 및 파일](#필수-폴더-및-파일)
-- [사용자 등록 페이지](#사용자-등록-페이지)
-- [로그인 페이지](#로그인-페이지)
+# S05. 백엔드 배포 
+- [Vercel을 이용한 배포 순서](#vercel을-이용한-배포-순서)
 
 ---
-### 필수 폴더 및 파일
-
-<br/>
-
-[[TOP]](#index)
-
----
-### 사용자 등록 페이지
-
-<br/>
-
-[[TOP]](#index)
-
----
-### 로그인 페이지
+### Vercel을 이용한 배포 순서
 
 <br/>
 
