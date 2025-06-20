@@ -75,6 +75,7 @@ PS C:\GitHub\practice\nextjs>
 
 ### Thunder Client 익스텐션 설치
 - Thunder Client : VSCode에서 사용할 수 있는 가볍고 직관적인 REST API 테스트 도구 <br/>
+- [[사용법]](https://inpa.tistory.com/entry/VS-Code-%F0%9F%92%BD-Thunder-Client-Postman-%EB%8C%80%EC%8B%A0-%EC%9D%B4%EA%B1%B0-%EC%93%B0%EC%9E%90) <br/>
 
 - 요청 등록 <br/>
 1️⃣ 설치 후 좌측 사이드바에 번개 아이콘이 생김. 클릭하면 Thunder Client가 열린다. <br/>
@@ -83,7 +84,13 @@ PS C:\GitHub\practice\nextjs>
 4️⃣ `Send` 버튼을 누르면 응답 결과가 하단에 표시된다. <br/>
 
 - 테스트 목록  <br/>
+▶️ Collections 기능 <br/>
+▶️ 프로젝트마다 사용하는 API 목록이 다른데 이때 콜렉션을 활용하면 프로젝마다 API 목록을 정리해 놓을 수 있어서 좋다.  <br/>
 
+- 환경 변수 <br/>
+▶️ 중복적으로 사용되는 값들을 환경변수로 설정할 수 있다. <br/>
+▶️ 상단 Env를 누르고  New Environment를 선택하면 프로젝트마다 환경변수를 적용할 수 있다. <br/>
+▶️ 프로젝트에서 사용하는 변수들을 여기에 등록해두면 된다. 
 <br/>
 
 [[TOP]](#index)
