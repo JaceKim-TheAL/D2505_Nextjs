@@ -568,7 +568,6 @@ export async function PUT(request, { params }) {
 ### 아이템 삭제
 > 삭제하기의 흐름은 수정하기와 거의 같음
 <br/>
-<br/>
 
 [app/api/item/delete/[id]/route.js] 
 ```js
@@ -593,10 +592,6 @@ export async function DELETE(request, { params }) {
 ```
 <br/>
 
-![Delete-아이템](./images/s03_tc_delete_item.png)
-
-<br/>
-
 - 삭제전 리스트 : http://localhost:3000/api/item/readall
 <pre>
 {
@@ -610,9 +605,11 @@ export async function DELETE(request, { params }) {
     ]
 }
 </pre>
+<br/>
 
+![Delete-아이템](./images/s03_tc_delete_item.png)
 
-
+<br/>
 - 삭제후 리스트 : http://localhost:3000/api/item/readall
 <pre>
 {
