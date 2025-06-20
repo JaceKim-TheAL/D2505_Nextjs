@@ -153,8 +153,9 @@ db.users.deleteOne({ name: "Jace" });
 ```shell
 mongodb+srv://jacekimtheal:<db_password>@cluster-jacekim.8pqgjqy.mongodb.net/?retryWrites=true&w=majority&appName=cluster-jacekim
 ```
-> - <db_password>를 jacekimtheal 데이터베이스 사용자 의 비밀번호로 바꾸세요. 
-> - 모든 옵션 매개변수가 URL로 인코딩 되었는지 확인하세요
+☑ <db_password>를 jacekimtheal 데이터베이스 사용자 의 비밀번호로 바꾸세요. <br/>
+☑ 모든 옵션 매개변수가 URL로 인코딩 되었는지 확인하세요 <br/>
+
 
 
 
