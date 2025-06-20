@@ -22,6 +22,7 @@
 # S01. 개발도구준비
 - [NextJS 개발준비](#nextjs-개발준비)
 - [VS Code 설치](#vs-code-설치)
+- [Thunder Client 익스텐션 설치](#thunder-client-익스텐션-설치)
 - [웹사이트 vs 웹애플리케이션](#웹사이트-vs-웹애플리케이션)
 - [CRUD 조작](#crud-조작)
 
@@ -69,12 +70,16 @@ PS C:\GitHub\practice\nextjs>
 ### VS Code 설치
 
 - 웹 애플리케이션 개발에서 가장 많이 사용되는 에디터
-- 다운로드 : https://code.visualstudio.com/download
-- Thunder Client 설치 : HTTP 요청 조작에 사용되면 VS Code 좌측에 번개 아이콘이 추가
-> 1. 설치 후 좌측 사이드바에 번개 아이콘이 생겨요. 클릭하면 Thunder Client가 열립니다.
-> 2. 상단의 "New Request" 버튼 클릭
+> 다운로드 : https://code.visualstudio.com/download
+
+
+### Thunder Client 익스텐션 설치
+- Thunder Client : VSCode에서 사용할 수 있는 가볍고 직관적인 REST API 테스트 도구
+- 사용방법
+> 1. 설치 후 좌측 사이드바에 번개 아이콘이 생김. 클릭하면 Thunder Client가 열린다.
+> 2. 상단의 `New Request` 버튼 클릭
 > 3. 요청할 API의 Method(GET, POST 등), URL, Headers, Body 등을 입력
-> 4. Send 버튼을 누르면 응답 결과가 하단에 표시됩니다
+> 4. `Send` 버튼을 누르면 응답 결과가 하단에 표시된다.
 
 <br/>
 
