@@ -223,8 +223,57 @@ MongoDB connected successfully
 
 ```
 - DE연결에 성공했음을 consol창에서 확인
+<br/>
+
+▶️ Schema 생성 <br/>
+
+[app/utils/schemaModels.js]
+```js
+import mongoose from "mongoose";
+
+const Schema = mongoose.Schema;
+
+const ItemSchema = new Schema({
+
+});
+```
 
 
+```js
+import mongoose from "mongoose";
+import { title } from "process";
+
+const Schema = mongoose.Schema;
+
+const ItemSchema = new Schema({
+    title: { type: String, required: true },
+    image: { type: String, required: true },
+    price: { type: Number, required: true },
+    description: { type: String, required: true },
+    email: { type: String, required: true }
+});
+
+export const ItemModel = mongoose.models.Item || mongoose.model("Item", ItemSchema);
+```
+<br/>
+
+[app/api/item/create/route.js]
+```js
+import { NextResponse } from 'next/server';
+
+export async function GET(request) {
+  return NextResponse.json({ message: '아이템 작성 (GET)' })
+}
+
+export async function POST(request) {
+  try {
+    console.log(await request.json())
+    await co 
+
+  }
+  return NextResponse.json({ message: '아이템 작성 (POST)' })
+}
+```
 
 <br/>
 
