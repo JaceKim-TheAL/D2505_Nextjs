@@ -13,7 +13,7 @@
     <td><a href="small_06.md">6.FE준비    </a></td>
     <td><a href="small_07.md">7.F사용자   </a></td>
     <td><a href="small_08.md">8.F아이템   </a></td>
-    <td><a href="small_09.md">9.FE배포    </a></td>
+    <td><b href="small_09.md">9.FE배포    </b></td>
     <td><a href="small_10.md">10.브러시업  </a></td>
   </tr>
 </table>
