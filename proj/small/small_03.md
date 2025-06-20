@@ -422,9 +422,35 @@ export async function GET(request, { params }) {
 TEST URL : http://localhost:3000/api/item/readsingle/68557bc7fdbe2baa27736334
 
 ![Read-하나의아이템](./images/s03_tc_readsingle_item_01.png)
+<br/>
+
+[app/api/item/readsingle/[id]/route.js]
+```js
+import { NextResponse } from 'next/server';
+import connectDB from '@/app/utils/database';
+import { ItemModel } from '../../../../utils/schemaModels';
+
+export async function GET(request, { params }) {
+    const { id } = params; // URL 파라미터에서 id 추출
+    try {
+        await connectDB(); // 데이터베이스 연결
+        const item = await ItemModel.findById(id); // 아이템 ID로 조회
+        if (!item) {
+            return NextResponse.json({ message: '아이템을 찾을 수 없습니다.' }, { status: 404 });
+        }
+        return NextResponse.json({ message: '아이템 조회 성공', item }, { status: 200 });
+    } catch (error) {
+        console.error('아이템 조회 중 오류 발생:', error);
+        return NextResponse.json({ message: '아이템 조회 실패', error: error.message }, { status: 500 });
+    }
+}
+```
+- schemaModels 모델 import 할때 [id] 폴더로 depth를 잘 확인할 것!!!
 
 
+TEST URL : http://localhost:3000/api/item/readsingle/685591ff8441a8c845d92ef7
 
+![Read-하나의아이템](./images/s03_tc_readsingle_item_02.png)
 <br/>
 
 [[TOP]](#index)
