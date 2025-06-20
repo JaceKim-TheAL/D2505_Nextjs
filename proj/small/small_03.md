@@ -567,6 +567,8 @@ export async function PUT(request, { params }) {
 
 ---
 ### 아이템 삭제
+> 삭제하기의 흐름은 수정하기와 거의 같음
+
 <br/>
 
 [[TOP]](#index)
