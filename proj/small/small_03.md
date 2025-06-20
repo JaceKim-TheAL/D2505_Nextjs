@@ -85,7 +85,8 @@ export async function POST(request) {
 
 ---
 ### MongoDB
-MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 NoSQL 데이터베이스
+MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 `NoSQL 데이터베이스`
+<br/>
 
 🧠 MongoDB의 핵심 개념 <br/>
 - Document: JSON과 유사한 BSON(Binary JSON) 형식으로 저장되는 데이터 단위
