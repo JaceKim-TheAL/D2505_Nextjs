@@ -202,7 +202,7 @@ export default connectDB
 - throw를 사용해 에러가 발생한 것을 알려준다. 
 <br/>
 
-
+[터미널의 서버구동 console...]
 ```console
 PS C:\GitHub\practice\nextjs\next-market> npm run dev
 
