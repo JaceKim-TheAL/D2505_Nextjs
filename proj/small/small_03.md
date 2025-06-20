@@ -172,7 +172,7 @@ npm install mongoose
 ```js
 import mongoose from 'mongoose'
 
-const MONGODB_URI = () => {}
+const connectDB = () => {}
 
 export default connectDB
 ```
@@ -184,12 +184,9 @@ export default connectDB
 ```js
 import mongoose from 'mongoose';
 
-// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/next-market';
-// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://jacekimtheal:
-
-const MONGODB_URI = () => {
+const connectDB = () => {
     try {
-        mongoose.connect("mongodb+srv://jacekimtheal:jacekimtheal@cluster-jacekim.8pqgjqy.mongodb.net/?retryWrites=true&w=majority&appName=cluster-jacekim")
+        mongoose.connect("mongodb+srv://jacekimtheal:<db_password>@cluster-jacekim.8pqgjqy.mongodb.net/?retryWrites=true&w=majority&appName=cluster-jacekim")
         console.log("MongoDB connected successfully");
     } catch (error) {
         console.error("MongoDB connection error:", error);
@@ -202,6 +199,29 @@ export default connectDB
 ```
 연결에 실패했을 때는 console.log()에서 DB연결 실패 메시지를 표시하고,
 throw를 사용해 에러가 발생한 것을 알려준다. 
+<br/>
+
+
+```console
+PS C:\GitHub\practice\nextjs\next-market> npm run dev
+
+> next-market@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.3.3 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.54.82:3000
+
+ ✓ Starting...
+ ✓ Ready in 913ms
+ ○ Compiling /api/item/create ...
+ ✓ Compiled /api/item/create in 583ms
+[Function: bound json]
+MongoDB connected successfully
+ POST /api/item/create 200 in 1106ms
+
+```
+
 <br/>
 
 [[TOP]](#index)
