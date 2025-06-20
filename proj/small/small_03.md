@@ -68,6 +68,9 @@ export async function POST(request) {
   return NextResponse.json({ message: '아이템 작성 (POST)' })
 }
 ```
+- 응답이 NextResponse 인 이유는 Next.js에서만 사용할 수 있는 특별한 코드이기 때문
+- request엣 Thunder Client에서 보낸 JSON 데이터가 들어 있을 것이므로, console.log()를 사용해서 확인
+
 ![이미지](./images/s03_tc_request_get.png)
 
 ![이미지](./images/s03_tc_request_post.png)
