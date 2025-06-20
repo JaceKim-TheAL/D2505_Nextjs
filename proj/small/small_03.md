@@ -297,7 +297,6 @@ export async function POST(request) {
 
 [POST] http://localhost:3000/api/item/create 
 <br/>
-<br/>
 
 [Body / JSON] <br/>
 ```json
@@ -389,7 +388,7 @@ export async function GET(request) {
 
 <br/>
 
-![Read-All아이템](./images/s03_tc_readall_item.png)
+![Read-All아이템](./images/s03_tc_readall_items.png)
 
 
 
