@@ -21,27 +21,33 @@
 ---
 # Mongo DB 
 - [MongoDB란?](#mongodb란)
-- [MongoDB의 핵심 개념](#-mongodb의-핵심-개념)
+- [핵심 개념](#mongodb의-핵심-개념)
+- [주요 특징](#mongodb의-주요-특징)
+- [사용 예시 (CRUD)](#사용-예시-crud)
+- [어디에 쓰이나요?](#️어디에-쓰이나요)
+- []
 
 ---
 ### MongoDB란?
-MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 `NoSQL 데이터베이스` <br/>
+MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 **NoSQL 데이터베이스** 
+<br/>
+🌐 공식사이트 : [[MongoDB Atlas]](https://www.mongodb.com/ko-kr/docs/manual/) <br/>
 <br/>
 
-### 🧠 MongoDB의 핵심 개념
+### 🧠MongoDB의 핵심 개념
 - Document: JSON과 유사한 BSON(Binary JSON) 형식으로 저장되는 데이터 단위
 - Collection: 여러 Document를 담는 그릇, RDB의 테이블과 비슷
 - Database: 여러 Collection을 포함하는 상위 개념
 <br/>
 
-### 💡특징
+### 💡MongoDB의 주요 특징
 - 스키마 유연성: 미리 정해진 구조 없이 다양한 형태의 데이터를 저장 가능
 - 확장성: 수평 확장이 쉬워서 대용량 데이터 처리에 유리
 - 빠른 읽기/쓰기 성능: 특히 읽기 속도가 빠르고, 인덱스를 다양하게 지원
 - 분산 시스템 지원: Replica Set, Sharding 등으로 고가용성과 확장성 확보
 <br/>
 
-🔧 사용 예시 (CRUD) <br/>
+### 🔧사용 예시 (CRUD) 
 ```javascript
 // Create
 db.users.insertOne({ name: "Jace", age: 28 });
@@ -57,13 +63,15 @@ db.users.deleteOne({ name: "Jace" });
 ```
 <br/>
 
-⚓️ 어디에 쓰이나요? <br/>
+### ⚓️어디에 쓰이나요?
 - 실시간 분석 시스템
 - IoT 데이터 저장
 - 사용자 프로필, 게시글, 채팅 로그 등 유연한 구조가 필요한 서비스
 <br/>
 
-🌐 공식사이트 : [[MongoDB Atlas]](https://www.mongodb.com/ko-kr/docs/manual/) <br/>
+
+### MongoDB의 종류
+
 <table>
   <tr>
     <td>MongoDB</td>
