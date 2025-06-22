@@ -128,7 +128,7 @@ db.users.deleteOne({ name: "Jace" });
 [[TOP]](#index)
 
 ---
-### ⏯MongoDB 드라이버 연결
+### MongoDB 드라이버 연결
 1. 드라이버와 버전을 선택 : Node.js ver6.7 이상
 2. 드라이버 설치 : `npm install mongodb`
 3. 연결 문자열을 애플리케이션 코드에 추가
@@ -138,7 +138,13 @@ mongodb+srv://jacekimtheal:<db_password>@cluster-jacekim.8pqgjqy.mongodb.net/?re
 ☑ <db_password>를 jacekimtheal 데이터베이스 사용자 의 비밀번호로 바꾸세요. <br/>
 ☑ 모든 옵션 매개변수가 URL로 인코딩 되었는지 확인하세요 <br/>
 
-
+⏯ 애플리케이션에서 연결 예시 (Node.js)
+```js
+const { MongoClient } = require('mongodb');
+const uri = 'mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority';
+const client = new MongoClient(uri);
+await client.connect();
+```
 <br/>
 
 [[TOP]](#index)
