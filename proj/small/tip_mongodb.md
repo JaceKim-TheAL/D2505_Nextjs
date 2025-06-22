@@ -66,7 +66,7 @@ db.users.deleteOne({ name: "Jace" });
 - 사용자 프로필, 게시글, 채팅 로그 등 유연한 구조가 필요한 서비스
 
 
-### MongoDB의 유형
+### ☁️MongoDB의 유형
 
 <table>
   <tr>
@@ -82,7 +82,6 @@ db.users.deleteOne({ name: "Jace" });
     </td>
   </tr>
 </table>
-<br/>
 
 <!--
  ☁️ MongoDB 설치형 (On-Premise 또는 자체 서버) 
@@ -108,7 +107,7 @@ db.users.deleteOne({ name: "Jace" });
 | 적합한 경우 | 빠른 개발, 스타트업, DevOps 리소스가 부족한 팀 등 | 
 -->
 
- ☁️ MongoDB 유형별 비교
+**유형별 비교**
 | 항목 | MongoDB 설치형 | MongoDB Atlas |
 |-----|---------------|---------------|  
 | 형태        | On-Premise 또는 자체 서버            | 클라우드 관리형 서비스  |
