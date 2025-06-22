@@ -83,6 +83,7 @@ db.users.deleteOne({ name: "Jace" });
 </table>
 <br/>
 
+<!--
  ☁️ MongoDB 설치형 (On-Premise 또는 자체 서버) 
 | 항목 | 설명 | 
 |-----|-----| 
@@ -94,7 +95,6 @@ db.users.deleteOne({ name: "Jace" });
 | 백업/복구 | 직접 스크립트 작성 또는 외부 도구 사용 필요 | 
 | 적합한 경우 | 고도의 커스터마이징이 필요한 환경, 내부망 전용 시스템 등 | 
 
-
 ☁️ MongoDB Atlas (클라우드 관리형 서비스)
 | 항목 | 설명 | 
 |-----|-----| 
@@ -105,8 +105,9 @@ db.users.deleteOne({ name: "Jace" });
 | 보안 | 기본적으로 TLS, IP 화이트리스트, 암호화 등 제공 | 
 | 백업/복구 | 자동 백업 및 복원 기능 내장 | 
 | 적합한 경우 | 빠른 개발, 스타트업, DevOps 리소스가 부족한 팀 등 | 
+-->
 
- ☁️ MongoDB 설치형 (On-Premise 또는 자체 서버) 
+ ☁️ MongoDB 유형
 | 항목 | MongoDB 설치형 | MongoDB Atlas |
 |-----|---------------|---------------|  
 | 형태        | On-Premise 또는 자체 서버            | 클라우드 관리형 서비스  |
