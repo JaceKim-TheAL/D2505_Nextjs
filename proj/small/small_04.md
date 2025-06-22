@@ -111,6 +111,7 @@ export async function POST(request) {
 
 ---
 ### 로그인 기능
+> 사용자 상태에 맞춰 실행하는 처리를 변경하는 코드를 작성
 
 <br/>
 
