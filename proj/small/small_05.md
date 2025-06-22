@@ -24,6 +24,11 @@
 
 ---
 ### Vercel을 이용한 배포 순서
+> Vercel은 Next.js의 개발사이기 때문에 Next.js 애플리케이션과 호환성이 높고 원활한 연동을 제공한다. <br/>
+> Git에 코드를 푸시하고 Vercel에서 배포 작업을 수행해 백엔드를 온라인에 공개한다. <br/>
+
+- URL에서 Vercel에 접속 : 
+- URL : [Vercel](https://vercel.com/)
 
 <br/>
 
