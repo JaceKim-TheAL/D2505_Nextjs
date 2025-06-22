@@ -29,6 +29,8 @@
 - [MongoDB의 유형](#️-mongodb의-유형)
 -->
 - [MongoDB 드라이버 연결](#mongodb-드라이버-연결)
+- [Next.js에서 MongoDB 연결](#nextjs에서-mongodb-연결)
+
 ---
 ### MongoDB란?
 MongoDB는 전통적인 RDBMS와는 다른 방식으로 데이터는 저장하는 **NoSQL 데이터베이스** 
