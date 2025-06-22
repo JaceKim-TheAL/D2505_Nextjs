@@ -150,3 +150,75 @@ await client.connect();
 [[TOP]](#index)
 
 ---
+### Next.js에서 MongoDB 연결
+> 가장 많이 사용되는 방식은 MongoDB Atlas + MongoClient 조합
+
+프로젝트 구조
+```shell
+/my-next-app
+├── lib
+│   └── mongodb.js
+├── pages
+│   └── api
+│       └── test.js
+├── .env.local
+├── package.json
+```
+
+1. `.env.local` 파일 설정
+```js
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/mydb?retryWrites=true&w=majority
+```
+
+2. `lib/mongodb.js` – MongoDB 연결 유틸
+```js
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+const options = {};
+
+let client;
+let clientPromise;
+
+if (!process.env.MONGODB_URI) {
+  throw new Error('MONGODB_URI 환경 변수가 설정되지 않았습니다.');
+}
+
+if (process.env.NODE_ENV === 'development') {
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri, options);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
+} else {
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
+}
+
+export default clientPromise;
+```
+
+3. `pages/api/test.js` – API 라우트에서 사용
+```js
+import clientPromise from '../../lib/mongodb';
+
+export default async function handler(req, res) {
+  const client = await clientPromise;
+  const db = client.db('mydb');
+  const collection = db.collection('test');
+
+  const data = await collection.find({}).toArray();
+  res.status(200).json({ data });
+}
+```
+
+4. 참조사이트
+- [MongoDB 공식 튜토리얼](https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/)
+- [velog.io :: Next.js 에서 MongoDB 연결 방법](https://velog.io/@k_ddaddi/Next%EC%97%90-MongoDB-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0)
+
+
+<br/>
+
+[[TOP]](#index)
+
+---
