@@ -21,6 +21,7 @@
 ---
 # Next.js Code
 - [import 방법](#import-방법)
+- [async/await 구문](#asyncawait-구문)
 
 ---
 ### import 방법
