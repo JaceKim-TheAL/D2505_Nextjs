@@ -58,4 +58,46 @@ import { add } from './utils';     // ✅ named export
 🎯 추가 팁
 - default export는 이름을 자유롭게 정해서 import 가능해.
 - named export는 반드시 export된 이름 그대로 써야 해.
+
 <br/>
+
+[[TOP]](#index)
+
+---
+### async/await 구문
+- 비동기 함수의 실행이 완료될 때까지 기다렸다가 다음 코드를 실행
+- Next.js에서도 API 호출이나 DB 작업처럼 시간이 걸리는 작업을 처리할 때 자주 사용
+<br/>
+
+💡 Next.js에서의 예시
+```js
+// pages/api/user.js
+export default async function handler(req, res) {
+  const response = await fetch('https://api.example.com/user');
+  const data = await response.json();
+  res.status(200).json(data);
+}
+```
+이 예시에서 `await fetch()`는 API 요청이 완료될 때까지 기다렸다가 결과를 받아와서 다음 코드인 `response.json()`을 실행
+<br/>
+
+⚠️ 주의할 점
+- `await`는 blocking처럼 동작할 수 있어서, 병렬 처리가 필요한 경우 `Promise.all()`을 사용하면 더 효율적일 수 있다
+- `try/catch`로 감싸면 에러 핸들링을 깔끔하게 할 수 있다.
+```js
+try {
+  const data = await fetchData();
+} catch (error) {
+  console.error('에러 발생:', error);
+}
+```
+
+Next.js의 `getServerSideProps`나 `getStaticProps` 같은 서버사이드 함수에서도 많이 쓰임.😄
+
+
+<br/>
+
+[[TOP]](#index)
+
+---
+
