@@ -302,3 +302,35 @@ export default async function handler(req, res) {
 [[TOP]](#index)
 
 ---
+### Docker 컨테이너에서 MongoDB 실행
+
+docker pull mongo      
+docker create mongo
+docker ps -a
+dcoker run --name <<container_name>> -d -p 27203:27017 mongo
+mongodb://localhost:27203
+
+mongodb 이미지를 다운
+mongodb 컨테이너 설치
+버턴 클릭하여 docker 실행
+
+DockerFile을 Build하여 Run하여 사용
+DockerHub : docker 저장소이며 image를 다운받아 사용
+https://hub.docker.com
+
+
+내 컴퓨터에 드라이버만 잡아주고 나머지 설정은 자동으로 되도록 누군가가 이미지를 만들어 놨다.
+도커 이미지를 만들어 놔서 거기에다가 이미 설정을 다 해놨다. 
+누가? 엔비디아가 해놓고 공식적으로 제공한다. 
+그렇게 공식적으로 제공한 이미지를 다운로드 받아서 그 이미지를 실행만 시키면 된다.
+내가 따로 설정할 필요가 1도 없다. 
+
+먼저 Docker를 다운로드 받는다.
+`도커 데스크톱 설치` 구글링
+
+
+<br/>
+
+[[TOP]](#index)
+
+---
