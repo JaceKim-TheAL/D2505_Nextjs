@@ -141,6 +141,9 @@ MongoDB Compass는 MongoDB 공식 GUI 클라이언트로, 데이터를 시각적
 ```plaintext
 mongodb://localhost:27017
 ```
+→ 브라우즈에서 열면 아래와 같은 Client GUI창이 새롭게 오픈
+
+![MongoDB_Compass](./images/mongodb_compass.png)
 <br/>
 
 2️⃣ MongoDB 실행 여부 GUI로 확인 <br/>
