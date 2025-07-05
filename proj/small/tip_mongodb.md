@@ -163,6 +163,42 @@ Compass는 클라이언트이기 때문에 MongoDB 서버가 실행 중이어야
 netstat -ano | findstr :27017
 ```
 → 결과가 나오면 MongoDB가 27017 포트에서 실행 중이라는 의미이다!!
+<br/>
+
+4️⃣ GUI를 통한 데이터 쿼리
+1. 컬렉션 선택 : Compass 접속 후 원하는 데이터베이스 → 컬렉션 클릭 <br/>
+  (예: mydatabase → users) <br/>
+
+2. 필터(Query) 입력
+컬렉션 화면의 "Filter" 입력창에서 조건을 JSON 형식으로 입력
+
+```json
+{ "age": { "$gte": 25 } }
+```
+
+✨ 자주 쓰는 예시 <br/>
+| 조건 | 쿼리 예제 | 
+|-----|----------| 
+| 특정 값 | { "name": "Jace" } | 
+| 범위 검색 | { "age": { "$gte": 20, "$lte": 30 } } | 
+| 존재 여부 | { "email": { "$exists": true } } | 
+| 배열 조건 | { "tags": { "$in": ["korean", "frontend"] } } | 
+| AND 조건 | { "age": { "$gte": 18 }, "active": true } | 
+| OR 조건 | { "$or": [ { "age": 18 }, { "active": true } ] } | 
+
+<br/>
+
+3. 정렬 & 제한
+- Sort 입력창: { "age": -1 } → 나이 순 내림차순 정렬
+- Limit: 몇 개까지 보여줄지 설정 (예: 100)
+- Project: 특정 필드만 보여주기 <br/>
+예: { "name": 1, "email": 1, "_id": 0 } → 이름과 이메일만 표시하고 ID는 제외
+<br/>
+
+💡 팁 <br/>
+- 쿼리 입력 시 문법 오류가 나면 Compass가 빨간 경고를 보여줘요 (실시간 문법 체크!)
+- 쿼리 조건 저장 기능도 있어 자주 사용하는 검색을 빠르게 다시 사용할 수 있어요
+- Compass는 단지 조회뿐 아니라, Insert, Update, Delete도 GUI로 지원해요
 
 
 <br/>
