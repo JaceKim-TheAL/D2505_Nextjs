@@ -131,14 +131,14 @@ db.users.deleteOne({ name: "Jace" });
 
 ---
 ### MongoDB Compass
-1. MongoDB Compass는 MongoDB 공식 GUI 클라이언트로, 데이터를 시각적으로 조회, 수정, 분석할 수 있게 도와주는 도구
+MongoDB Compass는 MongoDB 공식 GUI 클라이언트로, 데이터를 시각적으로 조회, 수정, 분석할 수 있게 도와주는 도구 <br/>
 
-2. MongoDB Compass로 로컬 서버 접속 방법
+1. MongoDB Compass로 로컬 서버 접속 방법
 
 ```plaintext
 mongodb://localhost:27017
 ```
-3. MongoDB 실행 여부 GUI로 확인
+2. MongoDB 실행 여부 GUI로 확인
 - Compass 접속 성공 → MongoDB 서버 정상 작동 중
 - 접속 실패 → 서버가 꺼져 있거나 포트 설정, 인증 문제가 있을 수 있어요
 - Compass에서 각 데이터베이스 및 컬렉션 확인 가능
@@ -147,6 +147,13 @@ mongodb://localhost:27017
   - 인덱스 조회
   - 성능 분석까지 가능!
 
+3. MongoDB 서버가 꺼져 있을 경우
+Compass는 클라이언트이기 때문에 MongoDB 서버가 실행 중이어야 해요. 서버 실행 여부는 다음으로 확인 가능:
+
+```shell
+netstat -ano | findstr :27017
+```
+→ 결과가 나오면 MongoDB가 27017 포트에서 실행 중이라는 의미이다!!
 
 
 <br/>
