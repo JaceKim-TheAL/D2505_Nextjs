@@ -20,14 +20,15 @@
 
 ---
 # Mongo DB 
-- [MongoDB란?](#mongodb란)
 <!--
+- [MongoDB란?](#mongodb란)
 - [핵심 개념](#-mongodb의-핵심-개념)
 - [주요 특징](#-mongodb의-주요-특징)
 - [사용 예시 (CRUD)](#-사용-예시-crud)
 - [어디에 쓰이나요?](#️-어디에-쓰이나요)
 - [MongoDB의 유형](#️-mongodb의-유형)
 -->
+- [MongoDB란?](#mongodb란)
 - [MongoDB Compass](#mongodb-compass)
 - [MongoDB 드라이버 연결](#mongodb-드라이버-연결)
 - [Next.js에서 MongoDB 연결](#nextjs에서-mongodb-연결)
