@@ -167,7 +167,7 @@ netstat -ano | findstr :27017
 
 4️⃣ GUI를 통한 데이터 쿼리
 1. 컬렉션 선택 : Compass 접속 후 원하는 데이터베이스 → 컬렉션 클릭 <br/>
-  (예: mydatabase → users) <br/>
+  (예: `mydatabase` → `users`) <br/>
 
 2. 필터(Query) 입력
 컬렉션 화면의 "Filter" 입력창에서 조건을 JSON 형식으로 입력
@@ -189,10 +189,10 @@ netstat -ano | findstr :27017
 <br/>
 
 3. 정렬 & 제한
-  - Sort 입력창: { "age": -1 } → 나이 순 내림차순 정렬
-  - Limit: 몇 개까지 보여줄지 설정 (예: 100)
-  - Project: 특정 필드만 보여주기 <br/>
-    예: { "name": 1, "email": 1, "_id": 0 } → 이름과 이메일만 표시하고 ID는 제외 <br/>
+  - **Sort** 입력창 : `{ "age": -1 }` → 나이 순 내림차순 정렬
+  - **Limit** : 몇 개까지 보여줄지 설정 (예: `100`)
+  - **Project** : 특정 필드만 보여주기 <br/>
+    예: `{ "name": 1, "email": 1, "_id": 0 }` → 이름과 이메일만 표시하고 ID는 제외 <br/>
 
 💡 팁 <br/>
 - 쿼리 입력 시 문법 오류가 나면 Compass가 빨간 경고를 보여준다. (실시간 문법 체크!)
