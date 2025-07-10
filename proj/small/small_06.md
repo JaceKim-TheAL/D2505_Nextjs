@@ -40,7 +40,9 @@
     <td>New Request</td>
     <td>[POST] http://localhost:3000/api/user/register </td>
     <td>
-      <button type="button">Send</button>
+      <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+        [Send]
+      </button>
     </td>
   </tr>
   <tr>
@@ -54,11 +56,7 @@
 }
 </pre>
     </td>
-    <td>
-      <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-        Send
-      </button>
-    </td>
+    <td></td>
   </tr>
 </table>
 
