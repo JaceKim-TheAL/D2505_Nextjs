@@ -28,6 +28,18 @@
 ---
 ### 아이템 데이터 저장
 
+- 더미 아이템 데이터6개를 MongoDB에 저장
+- Next.js 실행 명령어를 터미널에 입력하고 `Enter`키를 눌러 실행
+```shell
+% npm run dev
+```
+
+- Thunder Client를 열고 HTTP 메서드와 URL 설정
+```shell
+[POST] http://localhost:3000/api/user/register       [Send]
+```
+
+
 <br/>
 
 [[TOP]](#index)
