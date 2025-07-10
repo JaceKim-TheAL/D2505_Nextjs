@@ -21,7 +21,8 @@
 ---
 # S05. 백엔드 배포 
 - [Vercel을 이용한 배포 순서](#vercel을-이용한-배포-순서)
-- [기본배포절차]
+- [기본 배포 절차](#기본-배포-절차)
+- [CLI를 통한 배포](#cli를-통한-배포)
 
 ---
 ### Vercel을 이용한 배포 순서
@@ -101,6 +102,11 @@ vercel
 - Git에 push만 해도 자동으로 재배포됨 (CI/CD)
 - `vercel.json` 파일로 라우팅 설정 가능 (SPA에서 404 방지)
 - 커스텀 도메인 연결도 지원
+<br/>
+
+🚀 참조 튜토리얼 : 
+- [블로그](https://velog.io/@lovelys0731/Vercel%EB%A1%9C-React-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%B4-%EB%B3%B4%EC%9E%90-1-Vercel-%EB%B0%B0%ED%8F%AC-%EA%B8%B0%EB%B3%B8)
+- [가이드](https://blog.naver.com/macolombe/223895606848)
 
 <br/>
 
