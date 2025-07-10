@@ -48,11 +48,11 @@
     <td>JSON Content</td>
     <td>
 <pre>
-  {
-    "name" : "Jace",
-    "email" : "jacekim@gmail.com",
-    "password" : "admin123"
-  }
+{
+  "name" : "Jace",
+  "email" : "jacekim@gmail.com",
+  "password" : "admin123"
+}
 </pre>
     </td>
     <td></td>
