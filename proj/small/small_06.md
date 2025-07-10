@@ -35,9 +35,6 @@
 ```
 
 - Thunder Client를 열고 HTTP 메서드와 URL 설정
-```shell
-[POST] http://localhost:3000/api/user/register       [Send]
-```
 <table>
   <tr>
     <td>New Request</td>
@@ -59,17 +56,6 @@
   </tr>
 </table>
 
-
-|   |   |   |
-|---|---|---|
-| [POST] | http://localhost:3000/api/user/register    | [Send] |
-| 사용자 데이터 |
-{
-  "name" : "Jace",
-  "email" : "jacekim@gmail.com",
-  "password" : "admin123"
-}
-| 등록 |
 
 
 
