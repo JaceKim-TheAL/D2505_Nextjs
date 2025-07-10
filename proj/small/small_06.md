@@ -39,7 +39,8 @@
   <tr>
     <td>New Request</td>
     <td>[POST] http://localhost:3000/api/user/register </td>
-    <td>[Send]</td>
+    <td><button type="button">Send</button>
+</td>
   </tr>
   <tr>
     <td>JSON Content</td>
@@ -52,7 +53,7 @@
 }
 </pre>
     </td>
-    <td></td>
+    <td><input type="button" value="Send"></td>
   </tr>
 </table>
 
