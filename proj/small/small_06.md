@@ -38,6 +38,25 @@
 ```shell
 [POST] http://localhost:3000/api/user/register       [Send]
 ```
+<table>
+  <tr>
+    <td>New Request</td>
+    <td>[POST] http://localhost:3000/api/user/register </td>
+    <td>[Send]</td>
+  </tr>
+  <tr>
+    <td>JSON Content</td>
+    <td>
+        {
+          "name" : "Jace",
+          "email" : "jacekim@gmail.com",
+          "password" : "admin123"
+        }
+    </td>
+    <td></td>
+  </tr>
+</table>
+
 
 |   |   |   |
 |---|---|---|
