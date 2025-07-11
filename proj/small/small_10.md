@@ -28,7 +28,28 @@
 ---
 ### 이미지 업로드 기능 개발
 
+이미지 업로드 기능을 앱에 추가하여 사용자가 원하는 이미지를 저장 할 수 있다. 
+
+- 앞에서 개발한 애플리케이션의 아이템 사진에는 public 폴더의 이미지를 사용했다.
+- 하지만 여기서에서는 사용자가 원하는 사진을 애플리케이션에 표시하게 할 수 없으므로, 클라우드 서비스인 Cloudinary를 사용해 애플리케이션에 이미지 업로드 기능을 추가한다.
+- 먼저 Cloudinary에 사용자 등록을 한다. 
+- `URL` https://cloudinary.com/ 
 <br/>
+
+![cloudinary등록](./images/s10_cloudianry_start.png)
+
+![cloudinary키](./images/s10_cloudianry_key.png)
+
+```js
+    // Configuration
+    cloudinary.config({ 
+        cloud_name: 'duelol9lx', 
+        api_key: '183283821252485', 
+        api_secret: '<your_api_secret>' // Click 'View API Keys' above to copy your API secret
+    });
+
+```
+
 
 [[TOP]](#index)
 
