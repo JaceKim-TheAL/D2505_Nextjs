@@ -265,7 +265,60 @@ const ReadAllItems = async() => {
 export default ReadAllItems
 ```
 - getAllItems 안의 코드는 백엔드 쪽의 /app/api/item/readall/route.js에 기술되어 있는 모든 아이템 데이터를 얻는 코드와 기본적으로 같다는 것을 알 수 있다. 
+<br/>
 
+[app/utils/database.js]
+```js
+import mongoose from "mongoose"
+
+const connectDB = async() => {
+    try{
+        await mongoose.connect("mongodb+srv://qrg4f7egqg:xxx@cluster0.kxzbvxk.mongodb.net/nextAppDataBase?retryWrites=true&w=majority&appName=Cluster0")
+        console.log("Success: Connected to MongoDB")
+    }catch{
+        console.log("Failure: Unconnected to MongoDB")
+        throw new Error()
+    }
+}
+
+export default connectDB
+```
+<br/>
+
+[app/utils/schemaModels.js]
+
+```js
+import mongoose from "mongoose"
+
+const Schema = mongoose.Schema
+
+const ItemSchema = new Schema({
+    title: String,        
+    image: String,
+    price: String,    
+    description: String,
+    email: String,
+})
+
+const UserSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+})
+
+export const ItemModel = mongoose.models.Item || mongoose.model("Item", ItemSchema)
+export const UserModel = mongoose.models.User || mongoose.model("User", UserSchema)
+```
 
 <br/>
 
