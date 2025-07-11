@@ -25,6 +25,24 @@
 ---
 ### 백엔드 URL 수정(환경 변수 설정)
 
+환경 변수를 설정한 뒤 프론트엔드를 온라인에 공개한다. 
+
+- 수작업으로 각 파일의 URL을 변경하는 방법도 있지만, 환경 변수를 사용한다.
+  - .env.development 와 .env.production 이라는 파일을 폴더의 최상위 계층에 만든다.
+  - .으로 시작하는 특수한 파일명을 사용하는 점에 주의
+  - development는 `개발환경`, 즉 로컬PC 환경을 나타내고
+  - production은 `운영환경`, 즉 Vercel 환경 등을 의미
+  - 각 파일에는 개발 환경에서 사용하는 URL과 Vercel에서 사용하는 URL을 기
+
+[app/.env.development]
+```shell
+NEXT_PUBLIC_URL=http://localhost:3000
+```
+
+[app/.env.production]
+```shell
+NEXT_PUBLIC_URL=https://nextjs-book-fullstack-app-folder-v2.vercel.app
+```
 <br/>
 
 [[TOP]](#index)
