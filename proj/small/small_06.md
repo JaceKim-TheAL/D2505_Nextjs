@@ -176,13 +176,53 @@ const Contact = () => {
 🚨 서버 컴포넌트와 클라이언트 컴포넌트는 함께 사용할 수 있을까? <br/>
 - Next.js의 app 폴더 안에 만드는 React 컴포넌트는 자동으로 서버 컴포넌트가 된다.
 - 그렇다면 "use client"를 붙인 컴포넌트, 즉 클라이언트에서 서버 컴포넌트를 import 해서 사용할 수 있을까?
-  - 대답은 가능은 하지만 다소 보수 보수적인 형태이다.
+  - 대답은 가능은 하지만 다소 보수적인 형태이다.
   - 클라이언트 컴포넌트 안에 임포트한 자식 컴포넌트는 모두 자동으로 클라이언트 컴포넌트가 되기 때문
   - 그 결과 서버 컴포넌트의 강점인 데이터베이스 연결 등의 조작을 수행할 수 없게 된다. 
   - Next.js 공식사이트에서도 서버 컴포넌트를 클라이언트 컴포넌트에 임포하는 것은 지원하지 않는 사용방법(Unsupported Pattern)이라고 설명하고 있다. 
-  - 대신 권장되는 방법은 props, children 형태로 클라이언트 컴포넌트를 전달하는 방법이다. <br/>
+  - 대신 권장되는 방법은 **props, children 형태로 클라이언트 컴포넌트를 전달**하는 방법이다. <br/>
     이 방법을 사용하면 클라이언트 컴포넌트화 하지 않고, 서버 컴포넌트 기능을 유지할 수 있다.
-    
+<br/>
+
+🚀 React 서버 컴포넌트를 사용해 데이터 얻기 <br/>
+- 데이터 조작에 관한 기능들(읽기/생성/수정/삭제)를 백엔드와 프론트엔드 양쪽에서 확실하게 개발하는 방법으로 진행
+- React의 새로운 기능인 서버 컴포넌트를 사용하면 데이터 읽기를 수행할 때 API 서버를 경유하지 않고 데이터베이스에 직접 접근해서 실행할 수 있다. 
+
+[page.js]
+```js
+
+import Link from "next/link"
+import Image from "next/image"
+
+const getAllItems = async() => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readall`, {cache: "no-store"})
+    const jsonData = await response.json()
+    const allItems = jsonData.allItems
+    return allItems
+}
+
+const ReadAllItems = async() => {
+    const allItems = await getAllItems()
+    return (
+        <div className="grid-container-in">
+            <title>NextMarket</title>     
+            <meta name="description" content="NextMarketです"/>
+            {allItems.map(item => 
+                <Link href={`/item/readsingle/${item._id}`} key={item._id}>
+                    <Image src={item.image} width={750} height={500} alt="item-image" priority/>
+                    <div key={item._id}> 
+                        <h2>¥{item.price}</h2>
+                        <h3>{item.title}</h3>
+                        <p>{item.description.substring(0, 80)}...</p>  
+                    </div>
+                </Link>
+            )}
+        </div>
+    )
+} 
+
+export default ReadAllItems
+```
 
 
 <br/>
