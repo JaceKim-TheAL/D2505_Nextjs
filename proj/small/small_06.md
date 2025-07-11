@@ -146,6 +146,30 @@ import "./globals.css";
 | onClick 등 사용자 조작 기능 |  X  |  O  |
 | 백엔드 리소스에 직접 접근    |  O  |  X  |
 
+- React는 일반적으로 클라이언트 측의 기술로 인식되어 있다. 
+- React와 그 주변 기술들이 개발됨에 따라 서버 측에서의 동작이 가능하다. 
+- React 서버 컴포넌트의 장점은 높은 성능 특성이다.  <br/>
+  애플리케이션에서 사용도는 대량의 JavaScript를 브라우저(클라이언트)가 아니라 성능이 뛰어난 서버 측에서 처리함으로써 애플리케이션 크기를 작게 억제하면서, 읽기 속도가 낮아지는 것을 방지할 수 있다.
+
+- Next.js에서 기본값이 된 서버컴포넌트의 사용구분
+  - 서버 컴포넌트에서는 useState, useEffect를 사용할 수 없다. 
+  - 사용자 조작 관련 기능(onClick, onChange 등)도 사용할 수 없다. 
+  - 이를 사용하려면 파일의 첫번째 행에 "use client"라고 기술해야 한다. 
+
+```js
+"use client"
+
+import { useState } from "react"
+
+const Contact = () => {
+  const [data, setData] = useState("")
+  return(
+    <div>
+      .......
+    </div>
+  )
+}
+```
 
 <br/>
 
