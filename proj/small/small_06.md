@@ -190,7 +190,6 @@ const Contact = () => {
 
 [page.js]
 ```js
-
 import Link from "next/link"
 import Image from "next/image"
 
@@ -223,6 +222,49 @@ const ReadAllItems = async() => {
 
 export default ReadAllItems
 ```
+
+- getAllItems 로 API 서버에 접근해 모든 아이템 데이터를 얻는것을 알 수 있다. 
+- 하지만 React 서버 컴포넌트에서는 데이터를 얻을 때 데이터베이스에 직접 접근할 수 있으므로 getAllItems 안을 다음과 같이 치환할 수 있다. 
+
+[page.js]
+```js
+import Link from "next/link"
+import Image from "next/image"
+import connectDB from "../app/utils/database"           // 추가
+import { ItemModel } from "../app/utils/schemaModels"   // 추가
+
+const getAllItems = async() => {
+    // 변경↓
+    await connectDB()
+    const allItems = await ItemModel.find()
+    // 변경↑
+
+    return allItems
+}
+
+const ReadAllItems = async() => {
+    const allItems = await getAllItems()
+    return (
+        <div className="grid-container-in">
+            <title>NextMarket</title>     
+            <meta name="description" content="NextMarketです"/>
+            {allItems.map(item => 
+                <Link href={`/item/readsingle/${item._id}`} key={item._id}>
+                    <Image src={item.image} width={750} height={500} alt="item-image" priority/>
+                    <div key={item._id}> 
+                        <h2>¥{item.price}</h2>
+                        <h3>{item.title}</h3>
+                        <p>{item.description.substring(0, 80)}...</p>  
+                    </div>
+                </Link>
+            )}
+        </div>
+    )
+} 
+
+export default ReadAllItems
+```
+- getAllItems 안의 코드는 백엔드 쪽의 /app/api/item/readall/route.js에 기술되어 있는 모든 아이템 데이터를 얻는 코드와 기본적으로 같다는 것을 알 수 있다. 
 
 
 <br/>
