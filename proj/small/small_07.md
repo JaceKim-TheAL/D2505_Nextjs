@@ -194,12 +194,135 @@ export default Login
 - 현재 상태에서 <button>을 클릭하면 새로 고칩된다.
 - 변경된 내용을 저장하고 브라우저에서 http://localhost:3000/user/login 을 열고, 데이터베이스에 저장되어 있는 올바른 이메일 주소와 비밀번호를 입력한다.
 - 이후 `로그인` 버튼을 클릭한다.
+<br/>
 
 ![로그인 상태 유지 구조](./images/s07_login_process.png)
 <br/>
-[로그인 상태 유지 구조]
+[로그인 상태 유지 구조]<br/>
+
+- 가장 먼저 프론트엔드에 측에서 토큰을 받을 수 있는지 확인
+- console.log(jsonData) 를 추가해 프론트엔드 측에서 토큰을 받을수 있는 것을 확인
+- 데이터를 저장하는 경우에는 Local Storage에 저장한 데이터는 화면을 새로고침해도 삭제되지 않으므로, 토큰 저장 위치로 가장 적절
+- Local Storage에 쓰기는 localStorage.setItem()을 사용
+- console.log()는 필요하지 않으므로, 확인만 한후 이후 삭제
+- `보관할 데이터` 는 토큰에 들어 있는 jsonData.token, 그리고 `보관할데이터의 이름`은 임의의 이름을 붙인다. 여기서는 token을 사용
+- Local Storage에 보관되어 있는 토큰을 프론트엔드에서의 요청과 함께 백엔드에 보내면 로그인 상태를 유지할 수 있다. 
+- 다음을 진행하기 전에 백엔드 측 /api/user/login/route.js의 console.log(token)은 이후 필요하지 않으므로 삭제
+- 이것으로 사용자 등록페이지와 로그인페이지를 완성했다.
 
 
+[app/api/user/login/route.js]
+```js
+import { NextResponse } from "next/server"
+import { SignJWT } from "jose"  
+import connectDB from "../../../utils/database"
+import { UserModel } from "../../../utils/schemaModels"  
+
+export async function POST(request){
+    const reqBody = await request.json()
+    try{
+        await connectDB()
+        const savedUserData = await UserModel.findOne({email: reqBody.email}) 
+        if(savedUserData){
+            // 사용자가 존재할 때의 처리
+            if(reqBody.password === savedUserData.password){
+                // 비밀번호가 올바를 때의 처리
+
+                const secretKey = new TextEncoder().encode("next-market-app-book") 
+
+                const payload = {
+                    email: reqBody.email 
+                }
+
+                const token = await new SignJWT(payload)
+                                        .setProtectedHeader({alg: "HS256"})
+                                        .setExpirationTime("1d")
+                                        .sign(secretKey)
+                                        
+                return NextResponse.json({message: "로그인 성공", token: token})
+            }else{
+                // 비밀번호가 올바르지 않을 때의 처리
+                return NextResponse.json({message: "로그인 실패: 비밀번호가 올바르지 않습니다."})
+            }
+        }else{
+            // 사용자 데이터가 존재하지 않을 때의 처리
+            return NextResponse.json({message: "로그인 실패: 사용자를 등록해 주십시오."})
+        }
+    }catch{
+        return NextResponse.json({message: "로그인 실패"}) 
+    } 
+}
+
+```
+<br/>
+
+🚀 여러 항목을 포함하는 state 작성방법 <br/>
+- 지금까지 /register/page.js 와 /login/page.js 에서는 데이터마다 state를 준비했다.
+- 하지만 여러 데이터를 하나의 state 안에 모아서 작성할 수도 있다. 
+
+[app/user/register/page.js]
+```js
+const Register = () => {
+    const [name, setName] = useState("") 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+})
+```
+
+- 이제까지는 state에 데이터를 써넣는 setName()이나 setPassword() 등은 <input> 안에 인라인 형식으로 기술했다. 
+- 이를 하나로 모으고 싶을때는 handleChange를 만든다. 
+
+[app/user/register/page.js]
+```js
+"use client" 
+import { useState } from "react"
+
+const Register = () => {
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    password: ""
+  })
+  
+  const handleChange = () = {}   // 추가
+
+  const handleSubmit = async(e) => {
+  ....................
+
+}
+```
+
+[app/user/register/page.js]
+```js
+  <input value={ newUser.name } onChange={ handleChange } type="text" name="name" placeholder="이름" required/> 
+  <input value={ newUser.email } onChange={ handleChange } type="text" name="email" placeholder="메일 주소" required/>
+  <input value={ newUser.password } onChange={ handleChange } type="text" name="password" placeholder="비밀번호" required/>
+
+```
+
+- handleChange 안에서 state로 데이터를 써 넣는다. <br/>
+  각각의 데이터 쓰기는 setNewUser()가 수행한다.
+
+[app/user/register/page.js]
+```js
+  const handleChange = (e) = {
+    setNewUser({
+      ...newUser, 
+      [e.target.name]: e.target.value,
+    })
+  }   
+  
+```
+
+- 여기에서 newUser 앞에 사용한 ...는 스프레드 구분이라 부른다.
+  - newUser와 같이 여러 데이터를 가진 데이터의 덩어리를 분할하고, 각 항목에 새로운 데이터를 쓸 때 사용
+  - 백엔드로 보내는 데이터는 모두 newUser라는 state에 들어 있으므로 fetch() 안의 body는 다음과 같이 보낸다. 
+
+```js
+  body: JSON.stringify(newUser)
+```
+
+- 이해하기 쉽게 사용은 했지만, 이방법은 잘 사용하지 않는다. 그냥 이런 표기법도 있다는 정도만 숙지!!
 
 
 <br/>
