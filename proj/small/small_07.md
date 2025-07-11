@@ -196,7 +196,7 @@ export default Login
 - 이후 `로그인` 버튼을 클릭한다.
 
 ![로그인 상태 유지 구조](./images/s07_login_process.png)
-
+[[로그인 상태 유지 구조]]
 <br/>
 
 [[TOP]](#index)
