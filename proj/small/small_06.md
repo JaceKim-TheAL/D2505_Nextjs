@@ -120,7 +120,16 @@ body {
 `URL` http://localhost:3000/
 
 
+- HTML에서는 <head> 부분에 globals.css 파일을 임포트 하여야 하지만, Next.js에서는 이런 코드가 안보임!
+```html
+<link rel="stylesheet" href="./globals.css">
+```
 
+- app 폴더의 layout.js를 열어보면 globals.css 파일이 임포트되어 있음을 확인할 수 있다. 
+```js
+import "./globals.css";
+
+```
 
 
 <br/>
