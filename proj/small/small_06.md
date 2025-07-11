@@ -84,6 +84,45 @@
 ---
 ### React 작성 방법 및 스타일 적용 방법
 
+[app/page.js]
+```js
+const ReadAllItems = () => {
+  return (
+    <div>
+      <h1 className="h1-style">넥스트샵에 오신걸 환영합니다! ^^</h1>
+      <h2 style={{ marginTop: '10px', marginBottom: '20px'}}>다양한 상품을 준비하겠습니다.</h2>
+      <h3 style={{ color: 'blue', letterSpacing: '5px' }}>안녕히 가세요!!</h3>
+    </div>
+  );
+}
+
+export default ReadAllItems;
+```
+
+[app/globals.css]
+```css
+.....
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.h1-style {
+  color: red;
+  letter-spacing: 5px;
+}
+
+```
+
+
+`URL` http://localhost:3000/
+
+
+
+
+
 <br/>
 
 [[TOP]](#index)
