@@ -282,19 +282,122 @@ export const config = {
 
 <br/>
 
-
-
 [[TOP]](#index)
 
 ---
 ### 아이템 데이터 수정 페이지
 
+수정페이지는 내용이 가장 많고 `하나의 아이템 데이터를 읽는 페이지`와 `아이템 데이터를 작성하는 페이지`를 합친것이다. <br/>
+  - 하나의 아이템 데이터를 읽고, 그 데이터가 <input>과 <textarea>에 표시
+  - `하나의 아이템 데이터를 읽는 페이지`는 서버 컴포넌트, `아이템 데이터를 작성하는 페이지`는 클라이언트 컴포넌트 였다.
+    - 서버 컴포넌트로 전체 구조를 프레임을 만들고, 데이터 게시 부분만 잘라서 클라이언트 코드로 만드는 방법도 가능
+    - 이해하기 쉽게 전체를 클라이언트 컴퍼넌트로 만드는 방법도 가능
 <br/>
 
 [app/item/update/[id]/page.js]
 ```js
+"use client"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation" 
+import useAuth from "../../../utils/useAuth"
 
+const UpdateItem = (context) => {
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [description, setDescription] = useState("")
+    const [email, setEmail] = useState("")
+    const [loading, setLoading] = useState(false) 
+
+    const router = useRouter()
+    const loginUserEmail = useAuth() 
+
+    useEffect(() => {
+        const getSingleItem = async(id) => {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"})
+            const jsonData = await response.json() 
+            const singleItem = jsonData.singleItem
+            setTitle(singleItem.title)
+            setPrice(singleItem.price)
+            setImage(singleItem.image)
+            setDescription(singleItem.description)
+            setEmail(singleItem.email) 
+            setLoading(true) 
+        }  
+        getSingleItem(context.params.id) 
+    }, [context]) 
+
+    const handleSubmit = async(e) => {
+        e.preventDefault() 
+        try{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/update/${context.params.id}`, {
+                method: "PUT",
+                headers: { 
+                    "Accept": "application/json", 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({
+                    title: title,
+                    price: price,
+                    image: image,
+                    description: description,
+                    email: loginUserEmail    
+                })
+            })
+            const jsonData = await response.json()
+            alert(jsonData.message)  
+            router.push("/") 
+            router.refresh()
+        }catch{
+            alert("아이템 수정 실패") 
+        }
+    }
+
+    if(loading){   
+        if(loginUserEmail === email){ 
+            return (
+                <div>
+                    <title>수정 페이지</title>     
+                    <meta name="description" content="수정 페이지입니다."/>
+                    <h1 className="page-title">아이템 수정</h1>
+                    <form onSubmit={handleSubmit}>
+                        <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="아이템명" required/>
+                        <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="가격" required/>
+                        <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="이미지" required/>
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="상품 설명" required></textarea>
+                        <button>수정</button>
+                    </form>
+                </div>
+            )
+        }else{                            
+            return <h1>권한이 없습니다.</h1>  
+        }  
+    }else{                          
+        return <h1>로딩 중...</h1> 
+    }   
+}
+
+export default UpdateItem
 ```
+- 데이터를 작성하는 프로세스와 완전히 같으므로, /create/page.js 를 복사해서 /update/[id]/page.js에 복붙하고 `작성`을 `수정`으로 변경
+- 그리고 하나의 아이템데이터 읽기 코드를 추가한다. 
+- useEffect 는 특정 시점에 실행할 조작이 있을때 사용한다. 
+  - 수정 페이지의 경우 `페이지 수정 전에 아이템 데이터를 읽는` 조작이다
+  - 데이터 취득은 item/readsingle/[id]/page.js 에 있는 getSingleItem 과 같은 코드로 가능하므로, 복사해서 useEffect 안에 붙여 넣는다
+  - <input>과 <textarea>의 데이터는 value와 같으며, 현대 state의 데이터(title, price 등)가 들어 있다
+  - 얻은 데이터를 각 state에 써 넣으면 <input>과 <textarea>에 표시된다
+  - return 부분만 삭제
+- 이메일 데이터 추가
+  - 아이템 데이터에 있는 이메일 주소를 보관할 state
+  - `const [email, setEmail] = useState("")`
+  - getSingleItem을 호출해 실행하는 코드를 작성
+  - 괄호 안에는 URL 끝의 문자열을 포함하고 있는 context.params.id를 넣어야 하므로 context를 잊지말것
+  - 그리고 useEffect의 동작을 1회로 제한하는 [context]도 추가
+- 작성페이지를 가져온후 `작성`을 `수정`으로 변경
+- `URL` http://localhost:3000/api/item/update/XXXXX 
+- 끝의 XXXXX에는 수정할 아이템의 _id가 들어가야 하고, 이것은 context에 들어 있으므로 백틱을 사용할 것
+- 그리고 method도 PUT으로 변경
 <br/>
 
 [[TOP]](#index)
@@ -302,6 +405,101 @@ export const config = {
 ---
 ### 아이템 데이터 삭제 페이지
 
+삭제 페이지의 흐름은 수정 페이지의 흐름과 거의 동일<br/>
+<br/>
+
+[app/item/delete/[id]/page.js]
+```js
+"use client"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation" 
+import Image from "next/image"   
+import useAuth from "../../../utils/useAuth"
+
+const DeleteItem = (context) => {
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [description, setDescription] = useState("")
+    const [email, setEmail] = useState("")
+    const [loading, setLoading] = useState(false) 
+
+    const router = useRouter()
+    const loginUserEmail = useAuth() 
+
+    useEffect(() => {
+        const getSingleItem = async(id) => {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"})
+            const jsonData = await response.json() 
+            const singleItem = jsonData.singleItem
+            setTitle(singleItem.title)
+            setPrice(singleItem.price)
+            setImage(singleItem.image)
+            setDescription(singleItem.description)
+            setEmail(singleItem.email) 
+            setLoading(true)  
+        }  
+        getSingleItem(context.params.id) 
+    }, [context]) 
+
+    const handleSubmit = async(e) => {
+        e.preventDefault() 
+        try{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/delete/${context.params.id}`, {
+                method: "DELETE",
+                headers: { 
+                    "Accept": "application/json", 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({
+                    email: loginUserEmail 
+                })
+            })
+            const jsonData = await response.json()
+            alert(jsonData.message)  
+            router.push("/") 
+            router.refresh()
+        }catch{
+            alert("아이템 삭제 실패") 
+        }
+    }
+
+    if(loading){  
+        if(loginUserEmail === email){ 
+            return (
+                <div>
+                    <title>삭제 페이지</title>     
+                    <meta name="description" content="삭제 페이지입니다."/>
+                    <h1 className="page-title">아이템 삭제</h1>
+                    <form onSubmit={handleSubmit}>
+                        <h2>{title}</h2>
+                        <Image src={image} width={750} height={500} alt="item-image" priority/>
+                        <h3>¥{price}</h3>
+                        <p>{description}</p>
+                        <button>삭제</button>
+                    </form>
+                </div>
+            )   
+        }else{                 
+            return <h1>권한이 없습니다.</h1> 
+        }     
+    }else{                     
+        return <h1>로딩 중...</h1>     
+    }   
+}
+
+export default DeleteItem
+```
+- 삭제 페이지에서는 얻은 데이터를 표시하기 위한 <input>과 <textarea>를 사용할 필요 없다.
+- 그리고 <image> 임포트해서 사용
+- `수정`이라는 문자는 `삭제`로 변경하고, UpdateItem은 DeleteItem으로 변경
+- 마지막에 수정해야 할 부분은 handleSubmit 내부이다
+  - fetch()의 URL은 백엔드에서 삭제를 수행하는 /api/item/delete/XXXXX가 되므로 /update를 /delete로 수정
+- 백엔드에 보내는 데이터 부분
+  - title과 price 등은 보낼 필요 없음
+  - 백엔드에서는 프론트엔드에서 보내진 요청 안의 email과 삭제할 아이템 데이터의 email을 초대하는 프로세스가 있으므로 email은 남긴 채로 백엔드로 보내야 한다.
+- 마지막으로 수정페이지와 삭제페이지에 대한 링크를 `하나의 아이템 데이터를 읽는 페이지`에 추가
 <br/>
 
 [[TOP]](#index)
@@ -309,6 +507,60 @@ export const config = {
 ---
 ### 페이지 표시를 제어하기
 
+사용자 로그인 상태에 따라 표시할 페이지를 제한하는 기능을 개발 
+- 현재 시점에서 아이템 작성,수정,삭제 페이지에 누구나 접근할 수 있다
+- 로그인 하지 않은 사람에게 작성 페이지를 표시하지 않도록 제한
+- 해당 아이템의 작성자가 아닌 사람에게 수정 페이지와 삭제 페이지를 표시하지 않도록 제한
+<br/>
+
+[app/utils/useAuth.js]
+```js
+import { useState, useEffect } from "react" 
+import { useRouter } from "next/navigation"
+import { jwtVerify } from "jose" 
+
+const useAuth = () => {
+    const [loginUserEmail, setLoginUserEmail] = useState("")
+
+    const router = useRouter() 
+
+    useEffect(() => {   
+        const checkToken = async() => { 
+            const token = localStorage.getItem("token")
+
+            if(!token){
+                router.push("/user/login")
+            }
+
+            try{
+                const secretKey = new TextEncoder().encode("next-market-app-book") 
+                const decodedJwt = await jwtVerify(token, secretKey) 
+                setLoginUserEmail(decodedJwt.payload.email)  
+            }catch{
+                router.push("/user/login")
+            }
+        }
+        checkToken() 
+    }, [router]) 
+
+    return loginUserEmail 
+}
+
+export default useAuth
+```
+- 가정 먼저 사용자가 로그인했는지 확인
+  - Local Storage를 보면 알수 있다
+  - 토큰(token)이 있으면 로그인한 상태, 없으면 로그인하지 않은 상태
+  - !token은 'Not token', 즉 토큰이 없다는 의미
+  - 토큰이 없을 때는 로그인을 하도록 할것이므로 로그인 페이지로 이동시켜 준다
+  - 토큰이 있으면 해당 토큰이 유효한지 확인해야 한다
+    - 먼저 토큰이 유효할때와 유효하지 않을때의 대응을 위해 try catch를 추가
+    - 토큰의 유효성을 확인할 때는 jwtVerify()와 시크릿키가 필요
+    - 여기에서는 middleware.js에서 사용하는 것과 같은 시크릿키가 필요
+    - 토큰 해석 코드를 기술
+      - ` const secretKey = new TextEncoder().encode("next-market-app-book") `
+      
+      
 <br/>
 
 [[TOP]](#index)
