@@ -252,12 +252,269 @@ export default CreateItem
 ---
 ### 로딩
 
+애플리케이션의 처리 실행 주 로딩을 표시하게 한다.
+
+[app/item/update/[id]/page.js]
+```js
+"use client"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation" 
+import useAuth from "../../../utils/useAuth"
+
+const UpdateItem = (context) => {
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [description, setDescription] = useState("")
+    const [email, setEmail] = useState("")
+    const [loading, setLoading] = useState(false) 
+
+    const router = useRouter()
+    const loginUserEmail = useAuth() 
+
+    useEffect(() => {
+        const getSingleItem = async(id) => {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"})
+            const jsonData = await response.json() 
+            const singleItem = jsonData.singleItem
+            setTitle(singleItem.title)
+            setPrice(singleItem.price)
+            setImage(singleItem.image)
+            setDescription(singleItem.description)
+            setEmail(singleItem.email) 
+            setLoading(true) 
+        }  
+        getSingleItem(context.params.id) 
+    }, [context]) 
+
+    const handleSubmit = async(e) => {
+        e.preventDefault() 
+        try{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/update/${context.params.id}`, {
+                method: "PUT",
+                headers: { 
+                    "Accept": "application/json", 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({
+                    title: title,
+                    price: price,
+                    image: image,
+                    description: description,
+                    email: loginUserEmail    
+                })
+            })
+            const jsonData = await response.json()
+            alert(jsonData.message)  
+            router.push("/") 
+            router.refresh()
+        }catch{
+            alert("아이템 수정 실패") 
+        }
+    }
+
+    if(loading){   
+        if(loginUserEmail === email){ 
+            return (
+                <div>
+                    <title>수정 페이지</title>     
+                    <meta name="description" content="수정 페이지입니다."/>
+                    <h1 className="page-title">아이템 수정</h1>
+                    <form onSubmit={handleSubmit}>
+                        <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="아이템명" required/>
+                        <input value={price} onChange={(e) => setPrice(e.target.value)} type="text" name="price" placeholder="가격" required/>
+                        <input value={image} onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="이미지" required/>
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} name="description" rows={15} placeholder="상품 설명" required></textarea>
+                        <button>수정</button>
+                    </form>
+                </div>
+            )
+        }else{                            
+            return <h1>권한이 없습니다.</h1>  
+        }  
+    }else{                          
+        return <h1>로딩 중...</h1> 
+    }   
+}
+
+export default UpdateItem
+```
+
+- loading의 기본 state인 false가 true로 되는 것은 useEffect에서 데이터 취득을 완료했을 때이다. 
+- 따라서 데이터를 취득하는 동안에는 브라우저에 '로딩중...'이라고 표시된다. 
+
+<br/>
+
+[app/item/delete/[id]/page.js]
+```js
+"use client"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation" 
+import Image from "next/image"   
+import useAuth from "../../../utils/useAuth"
+
+const DeleteItem = (context) => {
+    const [title, setTitle] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [description, setDescription] = useState("")
+    const [email, setEmail] = useState("")
+    const [loading, setLoading] = useState(false) 
+
+    const router = useRouter()
+    const loginUserEmail = useAuth() 
+
+    useEffect(() => {
+        const getSingleItem = async(id) => {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"})
+            const jsonData = await response.json() 
+            const singleItem = jsonData.singleItem
+            setTitle(singleItem.title)
+            setPrice(singleItem.price)
+            setImage(singleItem.image)
+            setDescription(singleItem.description)
+            setEmail(singleItem.email) 
+            setLoading(true)  
+        }  
+        getSingleItem(context.params.id) 
+    }, [context]) 
+
+    const handleSubmit = async(e) => {
+        e.preventDefault() 
+        try{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/delete/${context.params.id}`, {
+                method: "DELETE",
+                headers: { 
+                    "Accept": "application/json", 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({
+                    email: loginUserEmail 
+                })
+            })
+            const jsonData = await response.json()
+            alert(jsonData.message)  
+            router.push("/") 
+            router.refresh()
+        }catch{
+            alert("아이템 삭제 실패") 
+        }
+    }
+
+    if(loading){  
+        if(loginUserEmail === email){ 
+            return (
+                <div>
+                    <title>삭제 페이지</title>     
+                    <meta name="description" content="삭제 페이지입니다."/>
+                    <h1 className="page-title">아이템 삭제</h1>
+                    <form onSubmit={handleSubmit}>
+                        <h2>{title}</h2>
+                        <Image src={image} width={750} height={500} alt="item-image" priority/>
+                        <h3>¥{price}</h3>
+                        <p>{description}</p>
+                        <button>삭제</button>
+                    </form>
+                </div>
+            )   
+        }else{                 
+            return <h1>권한이 없습니다.</h1> 
+        }     
+    }else{                     
+        return <h1>로딩 중...</h1>     
+    }   
+}
+
+export default DeleteItem
+```
+
+- 이젠 `권한이 없습니다`라는 메시지가 표시되지 않게 된다.
+- 그리고 삭제화면에서 'Console'에 표시되던 이미지 관련 에러 메시지도 표지되지 않는다
+
 <br/>
 
 [[TOP]](#index)
 
 ---
 ### 메타 데이터 설정 방법
+
+Next.js의 `메타 데이터를 설정`하는 두가지 방법을 소개한다. <br/>
+메타 데이터는 브라우저의 탭에 표시되는 **페이지 제목**, 페이지 개요가 기술된 **description**이며 SEO를 위해 매우 중요한 데이터이다. <br/>
+ ❶ <title> 태그나 <meta> 태그를 직접 기술하는 방법 <br/>
+ ❷ Next.js의 메타 데이터 설정 코드를 사용하는 방법 <br/>
+<br/>
+
+1️⃣ <title> 태그나 <meta> 태그를 직접 기술하는 방법 <br/>
+  - 코드상에서 추가 된 부분 참조 <br/>
+
+[app/user/login/page.js]
+```js
+"use client"
+import { useState } from "react"
+
+const Login = () => {
+    const [email, setEmail] = useState("") 
+    const [password, setPassword] = useState("")
+
+    const handleSubmit = async(e) => {
+      .................  
+      .................  
+    }
+    
+    return (
+        <div>
+            <title>로그인 페이지</title>      // 추가
+            <meta name="description" content="로그인 페이지입니다."/>    // 추가
+            <h1 className="page-title">로그인</h1>
+            <form onSubmit={handleSubmit}>
+              .................
+              .................
+            </form>
+        </div>
+    )
+}
+
+export default Login
+```
+<br/>
+
+[app/item/reasingle/[id]/page.js]
+```js
+import Image from "next/image"  
+import Link from "next/link" 
+
+const getSingleItem = async(id) => {
+      .................  
+      .................  
+    return singleItem 
+}  
+
+const ReadSingleItem = async(context) => {
+    const singleItem = await getSingleItem(context.params.id)
+    return (
+        <div className="grid-container-si">
+            <title>{singleItem.title}</title>     // 추가
+            <meta name="description" content={singleItem.description}/>  // 추가
+              .................
+              .................
+        </div>
+    )
+}
+
+export default ReadSingleItem
+```
+<br/>
+
+2️⃣ Next.js의 메타 데이터 설정 코드를 사용하는 방법 <br/>
+- 단, 서버 컴포넌트에서만 사용할 수 있다는 제약이 있다.
+- 이 애플리케이션에는 "use client"가 붙은 클라이언트 컴포넌트가 많으므로, <br/>
+  이 메타 데이터 설정코드를 사용하려면 이 콤포넌트들을 모두 서버 컴포넌트로 변경해야만 한다. 
+  - 클라이언트 컴포넌트를 서버 컴포넌트로 임포트하면 된다
+
+
+
 
 <br/>
 
