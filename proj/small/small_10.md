@@ -23,7 +23,7 @@
 - [이미지 업로드 기능 개발](#이미지-업로드-기능-개발)
 - [로딩](#로딩)
 - [메타 데이터 설정 방법](#메타-데이터-설정-방법)
-- [이후의 학습에 관해](#이후의-학습에-관해)
+- [향후 필요한 심화학습 항목](#향후-필요한-심화학습-항목)
 
 ---
 ### 이미지 업로드 기능 개발
@@ -672,14 +672,13 @@ export default UpdateItem
 ---
 ### 향후 필요한 심화학습 항목
 
-##### 1️⃣ JavaScript의 함수(function) 
-##### 2️⃣ 
-3️⃣ 
-4️⃣ 
-5️⃣ 
-6️⃣ 
-7️⃣
-
+<br/> 1️⃣ JavaScript의 함수(function) 
+<br/> 2️⃣ JavaScript의 비동기 처리(await/sysnc/promise)
+<br/> 3️⃣ React의 state(useState)
+<br/> 4️⃣ React의 useEffect의 동작
+<br/> 5️⃣ Next.js의 렌더링(SSR/SSG/ISR 등)
+<br/> 6️⃣ Next.js의 Server Actions
+<br/> 7️⃣ Next.js의 캐시 구조
 <br/>
 
 [[TOP]](#index)
