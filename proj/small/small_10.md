@@ -670,7 +670,15 @@ export default UpdateItem
 [[TOP]](#index)
 
 ---
-### 이후의 학습에 관해
+### 향후 필요한 심화학습 항목
+
+##### 1️⃣ JavaScript의 함수(function) 
+##### 2️⃣ 
+3️⃣ 
+4️⃣ 
+5️⃣ 
+6️⃣ 
+7️⃣
 
 <br/>
 
