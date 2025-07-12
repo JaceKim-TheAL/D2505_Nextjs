@@ -440,8 +440,8 @@ export default DeleteItem
 ---
 ### 메타 데이터 설정 방법
 
-Next.js의 `메타 데이터를 설정`하는 두가지 방법을 소개한다. <br/>
-메타 데이터는 브라우저의 탭에 표시되는 **페이지 제목**, 페이지 개요가 기술된 **description**이며 SEO를 위해 매우 중요한 데이터이다. <br/>
+Next.js의 **메타 데이터를 설정하는 두가지 방법**을 소개한다. <br/>
+메타 데이터는 브라우저의 탭에 표시되는 `페이지 제목`, 페이지 개요가 기술된 `description`이며 SEO를 위해 매우 중요한 데이터이다. <br/>
  ❶ <title> 태그나 <meta> 태그를 직접 기술하는 방법 <br/>
  ❷ Next.js의 메타 데이터 설정 코드를 사용하는 방법 <br/>
 <br/>
@@ -508,12 +508,162 @@ export default ReadSingleItem
 <br/>
 
 2️⃣ Next.js의 메타 데이터 설정 코드를 사용하는 방법 <br/>
-- 단, 서버 컴포넌트에서만 사용할 수 있다는 제약이 있다.
-- 이 애플리케이션에는 "use client"가 붙은 클라이언트 컴포넌트가 많으므로, <br/>
-  이 메타 데이터 설정코드를 사용하려면 이 콤포넌트들을 모두 서버 컴포넌트로 변경해야만 한다. 
-  - 클라이언트 컴포넌트를 서버 컴포넌트로 임포트하면 된다
+  - 단, 서버 컴포넌트에서만 사용할 수 있다는 제약이 있다.
+  - 이 애플리케이션에는 "use client"가 붙은 클라이언트 컴포넌트가 많으므로, <br/>
+    이 메타 데이터 설정코드를 사용하려면 이 콤포넌트들을 모두 서버 컴포넌트로 변경해야만 한다. 
+    - 클라이언트 컴포넌트를 서버 컴포넌트로 임포트하면 된다
 
+[app/user/register/myPage.js]
+```js
+"use client" 
+import { useState } from "react"
 
+const Register = () => {
+    const [name, setName] = useState("") 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()  
+        try{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/register`, {
+                method: "POST",
+                headers: { 
+                    "Accept": "application/json", 
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ 
+                    name: name,
+                    email: email,
+                    password: password
+                })
+            }) 
+            const jsonData = await response.json() 
+            alert(jsonData.message) 
+        }catch{
+            alert("사용자 등록 실패") 
+        }
+    }
+
+    return (
+        <div>
+            <title>등록 페이지</title>     
+            <meta name="description" content="등록 페이지입니다."/>
+            <h1 className="page-title">사용자 등록</h1>
+            <form onSubmit={handleSubmit}>
+                <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="이름" required/> 
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="메일 주소" required/>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder="비밀번호" required/>
+                <button>등록</button>
+            </form> 
+        </div>
+    )
+}
+
+export default Register
+```
+<br/>
+
+[app/user/register/page.js]
+```js
+import MyPage from "./myPage"
+
+const Register = () => {
+  return <MyPage/>
+}
+
+export default Register
+```
+- 클라이언트 컴포넌트인 myPage.js를 임포트해 return 시킬 뿐이다. 
+- 이것으로 등록페이지는 서버컴포넌트가 되었다. 
+<br/>
+
+[app/user/register/page.js]
+```js
+import MyPage from "./myPage"
+
+// 추가↓ 
+export const metadate = {
+  title: "등록 페이지",
+  description: "이것은 등록 페이지입니다.",
+}
+// 추가↑ 
+
+const Register = () => {
+  return <MyPage/>
+}
+
+export default Register
+```
+- 변경한 내용을 저장하면 브라우저 탭에 `등록 페이지`라고 표시된다. 
+<br/>
+
+[app/item/readsingle/[id]/page.js]
+```js
+import Image from "next/image"  
+import Link from "next/link" 
+
+// 추가↓ 
+export async function generateMetadata(context) {
+  const singleItem = await getSingleItem(context.params.id)
+  return {
+    title: singleItem.title,
+    description: singleItem.description
+}
+// 추가↑ 
+
+const getSingleItem = async(id) => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`, {cache: "no-store"})
+    const jsonData = await response.json() 
+    const singleItem = jsonData.singleItem
+    return singleItem 
+}  
+
+const ReadSingleItem = async(context) => {
+  ......................
+  ......................
+}
+
+export default ReadSingleItem
+```
+<br/>
+
+- 클라이언트 컴포넌트인 동시에 데이터에 따라 표시가 달라지는 수정/삭제페이지에도 위 두가지 방법을 조합해 사용
+- 즉 myPage.js를 작성한 후 임포트
+
+[app/item/update/[id]/page.js]
+```js
+import MyPage from "./myPage"
+
+// 추가↓ 
+export async function generateMetadata(context) {
+  const response = await fetch('${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${context.params.id}', {cache: "no-store"})
+  const jsonData = await response.json()
+  const singleItem = jsonData.singleItem
+  return {
+    title: singleItem.title,
+    description: singleItem.description
+}
+// 추가↑ 
+
+const UpdateItem = (context) => {
+  return <MyPage {...context}>
+}
+
+export default UpdateItem
+```
+<br/>
+
+[app/item/update/[id]/page.js]
+```js
+import MyPage from "./myPage"
+
+const UpdateItem = (context) => {
+  return <MyPage {...context}>
+}
+
+export default UpdateItem
+```
 
 
 <br/>
