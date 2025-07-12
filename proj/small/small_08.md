@@ -129,7 +129,7 @@ export default ReadSingleItem
 - 문자열을 작성하는 큰따옴표(" ") 또는 작은따옴프(' ') 안에 JavaScript의 코드는 기술할수 없다.
   - 따라서 여기서 사용하는 것은 백틱(backtick)과 같은 ${ }이다.
   - URL 전체를 백틱으로 싸고 아래와 같이 기술
-  - `fetch(http://localhost:3000/api/item/readsingle/${id})`
+    - `fetch(http://localhost:3000/api/item/readsingle/${id})`
 <br/>
 
 [[TOP]](#index)
