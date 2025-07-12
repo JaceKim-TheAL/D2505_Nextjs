@@ -550,20 +550,73 @@ export default useAuth
 ```
 - 가정 먼저 사용자가 로그인했는지 확인
   - Local Storage를 보면 알수 있다
+    - ` const token = localStorage.getItem("token") `
   - 토큰(token)이 있으면 로그인한 상태, 없으면 로그인하지 않은 상태
   - !token은 'Not token', 즉 토큰이 없다는 의미
   - 토큰이 없을 때는 로그인을 하도록 할것이므로 로그인 페이지로 이동시켜 준다
+<br/>
+
 - 토큰이 있으면 해당 토큰이 유효한지 확인해야 한다
   - 먼저 토큰이 유효할때와 유효하지 않을때의 대응을 위해 try catch를 추가
   - 토큰의 유효성을 확인할 때는 jwtVerify()와 시크릿키가 필요
   - 여기에서는 middleware.js에서 사용하는 것과 같은 시크릿키가 필요
   - 토큰 해석 코드를 기술 
-    - ` const secretKey = new TextEncoder().encode("next-market-app-book")    // 추가  `
+    - ` const secretKey = new TextEncoder().encode("next-market-app-book")  `
   - 토큰이 유효하다면 verify()에서 해석되고, 유효하지 않으면 에러가 발생해 catch 에서 처리
-    - ` const decodedJwt = await jwtVerify(token, secretKey)   // 추가  `
+    - ` const decodedJwt = await jwtVerify(token, secretKey)   `
   - 유효한 토큰을 해석한 데이터는 decodedJws에 들어 있다
   - 이 안에는 payload로서 사용자의 이메일 주소가 있으므로 이후 확인해보자 
-      
+<br/>
+
+- 해석 후의 데이터인 decodedJwt에 들어 있는 이메일 주소의 활용
+  - 수정 페이지와 삭제 페이지를 표시하는 제한에 사용
+  - 해석한 토큰 안에 있는 로그인 사용자의 이메일 주소를 코드에서 loginUserEmail 안에 써 넣는다
+    - ` setLoginUserEmail(decodedJwt.payload.email) `
+  - useAuth.js의 처리가 수행되는 시점은 
+    - 작성과 수정 페이지에 접근했을때, 가장 먼저 처리가 되어야 한다
+    - 페이지가 표시되기 전에 수행할 처리에는 useEffect를 사용한다
+    - useEffect를 임포트 한 뒤 우선 실행할 처리를 {} 안에 기술한다
+    - 마지막 []에는 router를 쓴다
+
+- jwtVerify()의 제대로 동작하지 않는 문제
+  - 얼핏보면 코드가 의도한 대로 동작할 것 같지만 사실은 문제가 있음
+  - middleware.js 에서 보면 jwtVerify() 앞에 await가 있다
+    - await가 없으면 그 아래의 코드가 먼저 실행되기 때문
+    - 따라서 useEffect 안에 await, 그리고 async를 추가해야 한다
+    - 하지만 ` useEffect(async() => { ... ` 와 같은 형태로 useEffect에 직접 async를 붙일 수는 없다.
+    - 아래와 같이 코드 추가하면, 이제 jwtVerify()가 올바르게 실행하게 된다.
+
+```js
+
+    useEffect(() => {   
+        const checkToken = async() => {     // 추가
+            const token = localStorage.getItem("token")
+
+            if(!token){
+                router.push("/user/login")
+            }
+
+            try{
+                const secretKey = new TextEncoder().encode("next-market-app-book") 
+                const decodedJwt = await jwtVerify(token, secretKey)   // 추가
+                setLoginUserEmail(decodedJwt.payload.email)    
+            }catch{
+                router.push("/user/login")
+            }
+        }
+        checkToken()   // 추가
+    }, [router]) 
+
+    return loginUserEmail 
+}
+
+export default useAuth
+```
+<br/>
+
+- 마지막으로 이 파일을 처리한 결과, 즉 로그인 사용자의 이메일 주소가 들어 있는 loginUserEmail을 다른 파일에서 사용할 수 있게 되므로 리턴해줘야 한다
+  - ` return loginUserEmail  `
+
 <br/>
 
 [[TOP]](#index)
