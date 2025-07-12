@@ -557,9 +557,12 @@ export default useAuth
     - 먼저 토큰이 유효할때와 유효하지 않을때의 대응을 위해 try catch를 추가
     - 토큰의 유효성을 확인할 때는 jwtVerify()와 시크릿키가 필요
     - 여기에서는 middleware.js에서 사용하는 것과 같은 시크릿키가 필요
-    - 토큰 해석 코드를 기술
-      - ` const secretKey = new TextEncoder().encode("next-market-app-book") `
-      
+    - 토큰 해석 코드를 기술 
+      <br/> ` const secretKey = new TextEncoder().encode("next-market-app-book")    // 추가  `
+    
+    - 토큰이 유효하다면 verify()에서 해석되고, 유효하지 않으면 에러가 발생해 catch 에서 처리
+    - 유효한 토큰을 해석한 데이터는 decodedJws에 들어 있다
+    - 이 안에는 payload로서 사용자의 이메일 주소가 있으므로 이후 확인해보자 
       
 <br/>
 
