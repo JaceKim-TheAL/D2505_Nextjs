@@ -630,6 +630,19 @@ export default ReadSingleItem
 
 - 클라이언트 컴포넌트인 동시에 데이터에 따라 표시가 달라지는 수정/삭제페이지에도 위 두가지 방법을 조합해 사용
 - 즉 myPage.js를 작성한 후 임포트
+<br/>
+
+[app/item/update/[id]/page.js]
+```js
+import MyPage from "./myPage"
+
+const UpdateItem = (context) => {
+  return <MyPage {...context}>
+}
+
+export default UpdateItem
+```
+<br/>
 
 [app/item/update/[id]/page.js]
 ```js
@@ -652,20 +665,6 @@ const UpdateItem = (context) => {
 
 export default UpdateItem
 ```
-<br/>
-
-[app/item/update/[id]/page.js]
-```js
-import MyPage from "./myPage"
-
-const UpdateItem = (context) => {
-  return <MyPage {...context}>
-}
-
-export default UpdateItem
-```
-
-
 <br/>
 
 [[TOP]](#index)
